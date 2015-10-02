@@ -17,19 +17,18 @@ class HXCPP_CLASS_ATTRIBUTES  FileSystem_obj : public hx::Object{
 		Void __construct();
 
 	public:
-		inline void *operator new( size_t inSize, bool inContainer=false,const char *inName="sys.FileSystem")
-			{ return hx::Object::operator new(inSize,inContainer,inName); }
+		inline void *operator new( size_t inSize, bool inContainer=false)
+			{ return hx::Object::operator new(inSize,inContainer); }
 		static hx::ObjectPtr< FileSystem_obj > __new();
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~FileSystem_obj();
 
-		HX_DO_RTTI_ALL;
-		static bool __GetStatic(const ::String &inString, Dynamic &outValue, hx::PropertyAccess inCallProp);
-		static void __register();
-		::String __ToString() const { return HX_HCSTRING("FileSystem","\xab","\xe2","\x17","\xca"); }
-
+		HX_DO_RTTI;
 		static void __boot();
+		static void __register();
+		::String __ToString() const { return HX_CSTRING("FileSystem"); }
+
 		static Dynamic stat( ::String path);
 		static Dynamic stat_dyn();
 

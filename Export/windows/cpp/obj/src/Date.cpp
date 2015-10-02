@@ -19,9 +19,9 @@ HX_STACK_ARG(min,"min")
 HX_STACK_ARG(sec,"sec")
 {
 	HX_STACK_LINE(27)
-	Float tmp = ::__hxcpp_new_date(year,month,day,hour,min,sec);		HX_STACK_VAR(tmp,"tmp");
+	Float _g = ::__hxcpp_new_date(year,month,day,hour,min,sec);		HX_STACK_VAR(_g,"_g");
 	HX_STACK_LINE(27)
-	this->mSeconds = tmp;
+	this->mSeconds = _g;
 }
 ;
 	return null();
@@ -31,24 +31,20 @@ HX_STACK_ARG(sec,"sec")
 
 Dynamic Date_obj::__CreateEmpty() { return  new Date_obj; }
 hx::ObjectPtr< Date_obj > Date_obj::__new(int year,int month,int day,int hour,int min,int sec)
-{  hx::ObjectPtr< Date_obj > _result_ = new Date_obj();
-	_result_->__construct(year,month,day,hour,min,sec);
-	return _result_;}
+{  hx::ObjectPtr< Date_obj > result = new Date_obj();
+	result->__construct(year,month,day,hour,min,sec);
+	return result;}
 
 Dynamic Date_obj::__Create(hx::DynamicArray inArgs)
-{  hx::ObjectPtr< Date_obj > _result_ = new Date_obj();
-	_result_->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3],inArgs[4],inArgs[5]);
-	return _result_;}
+{  hx::ObjectPtr< Date_obj > result = new Date_obj();
+	result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3],inArgs[4],inArgs[5]);
+	return result;}
 
 Float Date_obj::getTime( ){
-	HX_STACK_FRAME("Date","getTime",0x0cac7da3,"Date.getTime","C:\\HaxeToolkit\\haxe\\std/cpp/_std/Date.hx",30,0x1bc6780a)
+	HX_STACK_FRAME("Date","getTime",0x0cac7da3,"Date.getTime","C:\\HaxeToolkit\\haxe\\std/cpp/_std/Date.hx",31,0x1bc6780a)
 	HX_STACK_THIS(this)
 	HX_STACK_LINE(31)
-	Float tmp = this->mSeconds;		HX_STACK_VAR(tmp,"tmp");
-	HX_STACK_LINE(31)
-	Float tmp1 = (tmp * ((Float)1000.0));		HX_STACK_VAR(tmp1,"tmp1");
-	HX_STACK_LINE(31)
-	return tmp1;
+	return (this->mSeconds * 1000.0);
 }
 
 
@@ -58,130 +54,87 @@ HX_DEFINE_DYNAMIC_FUNC0(Date_obj,getTime,return )
 	HX_STACK_FRAME("Date","fromTime",0x44fd3cb7,"Date.fromTime","C:\\HaxeToolkit\\haxe\\std/cpp/_std/Date.hx",57,0x1bc6780a)
 	HX_STACK_ARG(t,"t")
 	HX_STACK_LINE(58)
-	::Date tmp = ::Date_obj::__new((int)0,(int)0,(int)0,(int)0,(int)0,(int)0);		HX_STACK_VAR(tmp,"tmp");
-	HX_STACK_LINE(58)
-	::Date result = tmp;		HX_STACK_VAR(result,"result");
+	::Date result = ::Date_obj::__new((int)0,(int)0,(int)0,(int)0,(int)0,(int)0);		HX_STACK_VAR(result,"result");
 	HX_STACK_LINE(59)
-	Float tmp1 = (t * ((Float)0.001));		HX_STACK_VAR(tmp1,"tmp1");
-	HX_STACK_LINE(59)
-	result->mSeconds = tmp1;
+	result->mSeconds = (t * 0.001);
 	HX_STACK_LINE(60)
-	::Date tmp2 = result;		HX_STACK_VAR(tmp2,"tmp2");
-	HX_STACK_LINE(60)
-	return tmp2;
+	return result;
 }
 
 
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(Date_obj,fromTime,return )
 
 ::Date Date_obj::fromString( ::String s){
-	HX_STACK_FRAME("Date","fromString",0x5ead97fb,"Date.fromString","C:\\HaxeToolkit\\haxe\\std/cpp/_std/Date.hx",64,0x1bc6780a)
+	HX_STACK_FRAME("Date","fromString",0x5ead97fb,"Date.fromString","C:\\HaxeToolkit\\haxe\\std/cpp/_std/Date.hx",63,0x1bc6780a)
 	HX_STACK_ARG(s,"s")
 	HX_STACK_LINE(64)
-	int _g = s.length;		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(64)
-	int tmp = _g;		HX_STACK_VAR(tmp,"tmp");
-	HX_STACK_LINE(64)
-	switch( (int)(tmp)){
-		case (int)8: {
-			HX_STACK_LINE(66)
-			Array< ::String > k = s.split(HX_HCSTRING(":","\x3a","\x00","\x00","\x00"));		HX_STACK_VAR(k,"k");
-			HX_STACK_LINE(67)
-			::String tmp1 = k->__get((int)0);		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(67)
-			Dynamic tmp2 = ::Std_obj::parseInt(tmp1);		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(67)
-			::String tmp3 = k->__get((int)1);		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(67)
-			Dynamic tmp4 = ::Std_obj::parseInt(tmp3);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(67)
-			::String tmp5 = k->__get((int)2);		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(67)
-			Dynamic tmp6 = ::Std_obj::parseInt(tmp5);		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(67)
-			::Date tmp7 = ::Date_obj::__new((int)0,(int)0,(int)0,tmp2,tmp4,tmp6);		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(67)
-			::Date d = tmp7;		HX_STACK_VAR(d,"d");
-			HX_STACK_LINE(68)
-			::Date tmp8 = d;		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(68)
-			return tmp8;
-		}
-		;break;
-		case (int)10: {
-			HX_STACK_LINE(70)
-			Array< ::String > k = s.split(HX_HCSTRING("-","\x2d","\x00","\x00","\x00"));		HX_STACK_VAR(k,"k");
-			HX_STACK_LINE(71)
-			::String tmp1 = k->__get((int)0);		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(71)
-			Dynamic tmp2 = ::Std_obj::parseInt(tmp1);		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(71)
-			::String tmp3 = k->__get((int)1);		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(71)
-			Dynamic tmp4 = ::Std_obj::parseInt(tmp3);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(71)
-			int tmp5 = (tmp4 - (int)1);		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(71)
-			::String tmp6 = k->__get((int)2);		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(71)
-			Dynamic tmp7 = ::Std_obj::parseInt(tmp6);		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(71)
-			::Date tmp8 = ::Date_obj::__new(tmp2,tmp5,tmp7,(int)0,(int)0,(int)0);		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(71)
-			return tmp8;
-		}
-		;break;
-		case (int)19: {
-			HX_STACK_LINE(73)
-			Array< ::String > k = s.split(HX_HCSTRING(" ","\x20","\x00","\x00","\x00"));		HX_STACK_VAR(k,"k");
-			HX_STACK_LINE(74)
-			::String tmp1 = k->__get((int)0);		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(74)
-			Array< ::String > y = tmp1.split(HX_HCSTRING("-","\x2d","\x00","\x00","\x00"));		HX_STACK_VAR(y,"y");
-			HX_STACK_LINE(75)
-			::String tmp2 = k->__get((int)1);		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(75)
-			Array< ::String > t = tmp2.split(HX_HCSTRING(":","\x3a","\x00","\x00","\x00"));		HX_STACK_VAR(t,"t");
-			HX_STACK_LINE(76)
-			::String tmp3 = y->__get((int)0);		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(76)
-			Dynamic tmp4 = ::Std_obj::parseInt(tmp3);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(76)
-			::String tmp5 = y->__get((int)1);		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(76)
-			Dynamic tmp6 = ::Std_obj::parseInt(tmp5);		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(76)
-			int tmp7 = (tmp6 - (int)1);		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(76)
-			::String tmp8 = y->__get((int)2);		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(76)
-			Dynamic tmp9 = ::Std_obj::parseInt(tmp8);		HX_STACK_VAR(tmp9,"tmp9");
-			HX_STACK_LINE(77)
-			::String tmp10 = t->__get((int)0);		HX_STACK_VAR(tmp10,"tmp10");
-			HX_STACK_LINE(77)
-			Dynamic tmp11 = ::Std_obj::parseInt(tmp10);		HX_STACK_VAR(tmp11,"tmp11");
-			HX_STACK_LINE(77)
-			::String tmp12 = t->__get((int)1);		HX_STACK_VAR(tmp12,"tmp12");
-			HX_STACK_LINE(77)
-			Dynamic tmp13 = ::Std_obj::parseInt(tmp12);		HX_STACK_VAR(tmp13,"tmp13");
-			HX_STACK_LINE(77)
-			::String tmp14 = t->__get((int)2);		HX_STACK_VAR(tmp14,"tmp14");
-			HX_STACK_LINE(77)
-			Dynamic tmp15 = ::Std_obj::parseInt(tmp14);		HX_STACK_VAR(tmp15,"tmp15");
-			HX_STACK_LINE(76)
-			::Date tmp16 = ::Date_obj::__new(tmp4,tmp7,tmp9,tmp11,tmp13,tmp15);		HX_STACK_VAR(tmp16,"tmp16");
-			HX_STACK_LINE(76)
-			return tmp16;
-		}
-		;break;
-		default: {
-			HX_STACK_LINE(79)
-			::String tmp1 = (HX_HCSTRING("Invalid date format : ","\xa6","\xde","\x58","\x13") + s);		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(79)
-			HX_STACK_DO_THROW(tmp1);
+	{
+		HX_STACK_LINE(64)
+		int _g = s.length;		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(64)
+		switch( (int)(_g)){
+			case (int)8: {
+				HX_STACK_LINE(66)
+				Array< ::String > k = s.split(HX_CSTRING(":"));		HX_STACK_VAR(k,"k");
+				HX_STACK_LINE(67)
+				Dynamic _g1 = ::Std_obj::parseInt(k->__get((int)0));		HX_STACK_VAR(_g1,"_g1");
+				HX_STACK_LINE(67)
+				Dynamic _g11 = ::Std_obj::parseInt(k->__get((int)1));		HX_STACK_VAR(_g11,"_g11");
+				HX_STACK_LINE(67)
+				Dynamic _g2 = ::Std_obj::parseInt(k->__get((int)2));		HX_STACK_VAR(_g2,"_g2");
+				HX_STACK_LINE(67)
+				::Date d = ::Date_obj::__new((int)0,(int)0,(int)0,_g1,_g11,_g2);		HX_STACK_VAR(d,"d");
+				HX_STACK_LINE(68)
+				return d;
+			}
+			;break;
+			case (int)10: {
+				HX_STACK_LINE(70)
+				Array< ::String > k = s.split(HX_CSTRING("-"));		HX_STACK_VAR(k,"k");
+				HX_STACK_LINE(71)
+				Dynamic _g3 = ::Std_obj::parseInt(k->__get((int)0));		HX_STACK_VAR(_g3,"_g3");
+				HX_STACK_LINE(71)
+				Dynamic _g4 = ::Std_obj::parseInt(k->__get((int)1));		HX_STACK_VAR(_g4,"_g4");
+				HX_STACK_LINE(71)
+				int _g5 = (_g4 - (int)1);		HX_STACK_VAR(_g5,"_g5");
+				HX_STACK_LINE(71)
+				Dynamic _g6 = ::Std_obj::parseInt(k->__get((int)2));		HX_STACK_VAR(_g6,"_g6");
+				HX_STACK_LINE(71)
+				return ::Date_obj::__new(_g3,_g5,_g6,(int)0,(int)0,(int)0);
+			}
+			;break;
+			case (int)19: {
+				HX_STACK_LINE(73)
+				Array< ::String > k = s.split(HX_CSTRING(" "));		HX_STACK_VAR(k,"k");
+				HX_STACK_LINE(74)
+				Array< ::String > y = k->__get((int)0).split(HX_CSTRING("-"));		HX_STACK_VAR(y,"y");
+				HX_STACK_LINE(75)
+				Array< ::String > t = k->__get((int)1).split(HX_CSTRING(":"));		HX_STACK_VAR(t,"t");
+				HX_STACK_LINE(76)
+				Dynamic _g7 = ::Std_obj::parseInt(y->__get((int)0));		HX_STACK_VAR(_g7,"_g7");
+				HX_STACK_LINE(76)
+				Dynamic _g8 = ::Std_obj::parseInt(y->__get((int)1));		HX_STACK_VAR(_g8,"_g8");
+				HX_STACK_LINE(76)
+				int _g9 = (_g8 - (int)1);		HX_STACK_VAR(_g9,"_g9");
+				HX_STACK_LINE(76)
+				Dynamic _g10 = ::Std_obj::parseInt(y->__get((int)2));		HX_STACK_VAR(_g10,"_g10");
+				HX_STACK_LINE(77)
+				Dynamic _g11 = ::Std_obj::parseInt(t->__get((int)0));		HX_STACK_VAR(_g11,"_g11");
+				HX_STACK_LINE(77)
+				Dynamic _g12 = ::Std_obj::parseInt(t->__get((int)1));		HX_STACK_VAR(_g12,"_g12");
+				HX_STACK_LINE(77)
+				Dynamic _g13 = ::Std_obj::parseInt(t->__get((int)2));		HX_STACK_VAR(_g13,"_g13");
+				HX_STACK_LINE(76)
+				return ::Date_obj::__new(_g7,_g9,_g10,_g11,_g12,_g13);
+			}
+			;break;
+			default: {
+				HX_STACK_LINE(79)
+				HX_STACK_DO_THROW((HX_CSTRING("Invalid date format : ") + s));
+			}
 		}
 	}
-	HX_STACK_LINE(64)
+	HX_STACK_LINE(81)
 	return null();
 }
 
@@ -193,31 +146,23 @@ Date_obj::Date_obj()
 {
 }
 
-Dynamic Date_obj::__Field(const ::String &inName,hx::PropertyAccess inCallProp)
+Dynamic Date_obj::__Field(const ::String &inName,bool inCallProp)
 {
 	switch(inName.length) {
 	case 7:
 		if (HX_FIELD_EQ(inName,"getTime") ) { return getTime_dyn(); }
 		break;
 	case 8:
+		if (HX_FIELD_EQ(inName,"fromTime") ) { return fromTime_dyn(); }
 		if (HX_FIELD_EQ(inName,"mSeconds") ) { return mSeconds; }
+		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"fromString") ) { return fromString_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
 
-bool Date_obj::__GetStatic(const ::String &inName, Dynamic &outValue, hx::PropertyAccess inCallProp)
-{
-	switch(inName.length) {
-	case 8:
-		if (HX_FIELD_EQ(inName,"fromTime") ) { outValue = fromTime_dyn(); return true;  }
-		break;
-	case 10:
-		if (HX_FIELD_EQ(inName,"fromString") ) { outValue = fromString_dyn(); return true;  }
-	}
-	return false;
-}
-
-Dynamic Date_obj::__SetField(const ::String &inName,const Dynamic &inValue,hx::PropertyAccess inCallProp)
+Dynamic Date_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool inCallProp)
 {
 	switch(inName.length) {
 	case 8:
@@ -226,29 +171,28 @@ Dynamic Date_obj::__SetField(const ::String &inName,const Dynamic &inValue,hx::P
 	return super::__SetField(inName,inValue,inCallProp);
 }
 
-bool Date_obj::__SetStatic(const ::String &inName,Dynamic &ioValue,hx::PropertyAccess inCallProp)
-{
-	return false;
-}
-
 void Date_obj::__GetFields(Array< ::String> &outFields)
 {
-	outFields->push(HX_HCSTRING("mSeconds","\x92","\x75","\x59","\x82"));
+	outFields->push(HX_CSTRING("mSeconds"));
 	super::__GetFields(outFields);
 };
 
+static ::String sStaticFields[] = {
+	HX_CSTRING("fromTime"),
+	HX_CSTRING("fromString"),
+	String(null()) };
+
 #if HXCPP_SCRIPTABLE
 static hx::StorageInfo sMemberStorageInfo[] = {
-	{hx::fsFloat,(int)offsetof(Date_obj,mSeconds),HX_HCSTRING("mSeconds","\x92","\x75","\x59","\x82")},
+	{hx::fsFloat,(int)offsetof(Date_obj,mSeconds),HX_CSTRING("mSeconds")},
 	{ hx::fsUnknown, 0, null()}
 };
-static hx::StaticInfo *sStaticStorageInfo = 0;
 #endif
 
 static ::String sMemberFields[] = {
-	HX_HCSTRING("mSeconds","\x92","\x75","\x59","\x82"),
-	HX_HCSTRING("getTime","\xc3","\x7b","\x7f","\x1f"),
-	::String(null()) };
+	HX_CSTRING("mSeconds"),
+	HX_CSTRING("getTime"),
+	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(Date_obj::__mClass,"__mClass");
@@ -261,35 +205,23 @@ static void sVisitStatics(HX_VISIT_PARAMS) {
 
 #endif
 
-hx::Class Date_obj::__mClass;
-
-static ::String sStaticFields[] = {
-	HX_HCSTRING("fromTime","\x97","\x9a","\xc8","\xaa"),
-	HX_HCSTRING("fromString","\xdb","\x2d","\x74","\x54"),
-	::String(null()) };
+Class Date_obj::__mClass;
 
 void Date_obj::__register()
 {
-	hx::Static(__mClass) = new hx::Class_obj();
-	__mClass->mName = HX_HCSTRING("Date","\x4e","\x82","\x3c","\x2d");
-	__mClass->mSuper = &super::__SGetClass();
-	__mClass->mConstructEmpty = &__CreateEmpty;
-	__mClass->mConstructArgs = &__Create;
-	__mClass->mGetStaticField = &Date_obj::__GetStatic;
-	__mClass->mSetStaticField = &Date_obj::__SetStatic;
-	__mClass->mMarkFunc = sMarkStatics;
-	__mClass->mStatics = hx::Class_obj::dupFunctions(sStaticFields);
-	__mClass->mMembers = hx::Class_obj::dupFunctions(sMemberFields);
-	__mClass->mCanCast = hx::TCanCast< Date_obj >;
+	hx::Static(__mClass) = hx::RegisterClass(HX_CSTRING("Date"), hx::TCanCast< Date_obj> ,sStaticFields,sMemberFields,
+	&__CreateEmpty, &__Create,
+	&super::__SGetClass(), 0, sMarkStatics
 #ifdef HXCPP_VISIT_ALLOCS
-	__mClass->mVisitFunc = sVisitStatics;
+    , sVisitStatics
 #endif
 #ifdef HXCPP_SCRIPTABLE
-	__mClass->mMemberStorageInfo = sMemberStorageInfo;
+    , sMemberStorageInfo
 #endif
-#ifdef HXCPP_SCRIPTABLE
-	__mClass->mStaticStorageInfo = sStaticStorageInfo;
-#endif
-	hx::RegisterClass(__mClass->mName, __mClass);
+);
+}
+
+void Date_obj::__boot()
+{
 }
 

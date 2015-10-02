@@ -1,0 +1,26 @@
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\Mutant.ap_ \
+ : C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-hdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-ldpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-mdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-xhdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-xhdpi\ouya_icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-xxhdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\res\drawable-xxxhdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-hdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-ldpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-mdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-xhdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-xhdpi\ouya_icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-xxhdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\res\drawable-xxxhdpi\icon.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\manifest \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\bakgrund.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\close_btn.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\minus.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\Nootype.otf \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\plus.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\plusknapp.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\ram.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\slumpknapp.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\AndroidManifest.xml \

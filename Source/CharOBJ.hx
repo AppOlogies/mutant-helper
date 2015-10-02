@@ -52,6 +52,7 @@ class CharOBJ extends Sprite
 		super();
 		textFormat = new TextFormat();
 		textFormat.font = "assets/Nootype.otf";
+		textFormat.align = "center";
 		textFormat.size = 60;
 		textFormat.color = 0x12fe16;
 		
@@ -66,6 +67,8 @@ class CharOBJ extends Sprite
 		closeBitmap.x = 600;
 		closeBitmap.y = 15;
 		closeBTN.addChild(closeBitmap);
+		
+		closeBTN.addEventListener(MouseEvent.CLICK, removeME);
 		
 		
 		plusArray = new Array<CharOBJOperator>();
@@ -97,10 +100,14 @@ class CharOBJ extends Sprite
 		
 		nameField.defaultTextFormat = textFormat;
 		nameField.textColor = 0x000000;
-		nameField.autoSize = TextFieldAutoSize.LEFT;
-		nameField.text = "Xxx";
-		nameField.x = 360 - nameField.width / 2;
-		nameField.y = 400;
+		nameField.background = true;
+		nameField.backgroundColor =0x11fa15;
+		//nameField.autoSize = TextFieldAutoSize.CENTER;
+		nameField.text = "Namn";
+		nameField.width = 350;
+		nameField.height = 70;
+		nameField.x = 330 - nameField.width / 2;
+		nameField.y = -30;
 		nameField.selectable = true;
 		nameField.type = TextFieldType.INPUT;
 		addChild(nameField);
@@ -234,4 +241,13 @@ class CharOBJ extends Sprite
 		btn.addEventListener(MouseEvent.CLICK, unbreakChar);
 		return btn;
 	}
+	
+	
+	function removeME(e:MouseEvent):Void
+	{
+		this.parent.removeChild(this);
+		
+	}
+	
+	
 }

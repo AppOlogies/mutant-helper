@@ -5,30 +5,30 @@
     <movie outputType="CustomBuild" />
     <movie input="" />
     <movie path="project.xml" />
-    <movie fps="30" />
-    <movie width="640" />
-    <movie height="960" />
+    <movie fps="60" />
+    <movie width="660" />
+    <movie height="1000" />
     <movie version="1" />
     <movie minorVersion="0" />
     <movie platform="Lime" />
-    <movie background="FFFFFF" />
+    <movie background="000000" />
     <movie preferredSDK=";3;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="C:\HaxeToolkit\haxe\lib\openfl\3,2,2" />
-    <class path="C:\HaxeToolkit\haxe\lib\lime\2,5,2" />
+    <class path="C:\HaxeToolkit\haxe\lib\openfl\2,2,7" />
+    <class path="C:\HaxeToolkit\haxe\lib\lime\2,1,2" />
     <class path="Source" />
     <class path="Export\windows\neko\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="openfl=3.2.2&#xA;lime=2.5.2&#xA;openfl-next&#xA;tools=2.5.2&#xA;no-compilation&#xA;native&#xA;lime-native&#xA;openfl-native&#xA;windows&#xA;desktop" />
+    <option directives="openfl=2.2.7&#xA;lime=2.1.2&#xA;tools=2.1.2&#xA;no-compilation&#xA;native&#xA;lime-native&#xA;openfl-native&#xA;windows&#xA;desktop" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="False" />
-    <option additional="--remap flash:openfl&#xA;#--macro keep(&quot;Main&quot;)" />
+    <option additional="--remap flash:openfl&#xA;#--macro keep(&quot;Main&quot;)&#xA;-debug " />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

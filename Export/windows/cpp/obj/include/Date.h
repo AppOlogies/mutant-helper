@@ -16,21 +16,17 @@ class HXCPP_CLASS_ATTRIBUTES  Date_obj : public hx::Object{
 		Void __construct(int year,int month,int day,int hour,int min,int sec);
 
 	public:
-		inline void *operator new( size_t inSize, bool inContainer=false,const char *inName="Date")
-			{ return hx::Object::operator new(inSize,inContainer,inName); }
+		inline void *operator new( size_t inSize, bool inContainer=false)
+			{ return hx::Object::operator new(inSize,inContainer); }
 		static hx::ObjectPtr< Date_obj > __new(int year,int month,int day,int hour,int min,int sec);
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~Date_obj();
 
-		HX_DO_RTTI_ALL;
-		Dynamic __Field(const ::String &inString, hx::PropertyAccess inCallProp);
-		static bool __GetStatic(const ::String &inString, Dynamic &outValue, hx::PropertyAccess inCallProp);
-		Dynamic __SetField(const ::String &inString,const Dynamic &inValue, hx::PropertyAccess inCallProp);
-		static bool __SetStatic(const ::String &inString, Dynamic &ioValue, hx::PropertyAccess inCallProp);
-		void __GetFields(Array< ::String> &outFields);
+		HX_DO_RTTI;
+		static void __boot();
 		static void __register();
-		::String __ToString() const { return HX_HCSTRING("Date","\x4e","\x82","\x3c","\x2d"); }
+		::String __ToString() const { return HX_CSTRING("Date"); }
 
 		Float mSeconds;
 		virtual Float getTime( );

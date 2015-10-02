@@ -1,7 +1,5 @@
+import lime.Assets;
 #if !macro
-
-
-@:access(lime.Assets)
 
 
 class ApplicationMain {
@@ -13,15 +11,8 @@ class ApplicationMain {
 	
 	public static function create ():Void {
 		
-		var app = new lime.app.Application ();
+		var app = new openfl.display.Application ();
 		app.create (config);
-		openfl.Lib.application = app;
-		
-		#if !flash
-		var stage = new openfl.display.Stage (app.window.width, app.window.height, config.background);
-		stage.addChild (openfl.Lib.current);
-		app.addModule (stage);
-		#end
 		
 		var display = new NMEPreloader ();
 		
@@ -35,31 +26,35 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/bakgrund.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/close_btn.png");
+		types.push (AssetType.IMAGE);
 		
 		
 		urls.push ("assets/minus.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		types.push (AssetType.IMAGE);
 		
 		
 		urls.push ("Radikal");
-		types.push (lime.Assets.AssetType.FONT);
+		types.push (AssetType.FONT);
 		
 		
 		urls.push ("assets/plus.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		types.push (AssetType.IMAGE);
 		
 		
 		urls.push ("assets/plusknapp.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		types.push (AssetType.IMAGE);
 		
 		
 		urls.push ("assets/ram.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		types.push (AssetType.IMAGE);
 		
 		
 		urls.push ("assets/slumpknapp.png");
-		types.push (lime.Assets.AssetType.IMAGE);
+		types.push (AssetType.IMAGE);
 		
 		
 		
@@ -67,7 +62,7 @@ class ApplicationMain {
 			
 			for (i in 0...urls.length) {
 				
-				if (types[i] != lime.Assets.AssetType.FONT) {
+				if (types[i] != AssetType.FONT) {
 					
 					urls[i] = config.assetsPrefix + urls[i];
 					
@@ -82,7 +77,7 @@ class ApplicationMain {
 		
 		var result = app.exec ();
 		
-		#if (sys && !nodejs && !emscripten)
+		#if (sys && !emscripten)
 		Sys.exit (result);
 		#end
 		
@@ -109,7 +104,7 @@ class ApplicationMain {
 		
 		
 		
-		if (total == 0) {
+		if (loaded == total) {
 			
 			start ();
 			
@@ -123,29 +118,24 @@ class ApplicationMain {
 		config = {
 			
 			antialiasing: Std.int (0),
-			background: Std.int (16777215),
+			background: Std.int (0),
 			borderless: false,
-			company: "Company Name",
 			depthBuffer: false,
-			file: "Mutant",
 			fps: Std.int (60),
 			fullscreen: false,
-			hardware: true,
-			height: Std.int (960),
+			height: Std.int (980),
 			orientation: "",
-			packageName: "com.sample.project",
 			resizable: true,
-			stencilBuffer: true,
+			stencilBuffer: false,
 			title: "Mutant",
-			version: "1.0.0",
-			vsync: false,
-			width: Std.int (640),
+			vsync: true,
+			width: Std.int (660),
 			
 		}
 		
-		#if (js && html5)
+		#if js
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 960, "FFFFFF");
+		flash.Lib.embed (null, 660, 980, "000000");
 		#end
 		#else
 		create ();
@@ -169,8 +159,6 @@ class ApplicationMain {
 			}
 			
 		}
-		
-		lime.Assets.initialize ();
 		
 		if (hasMain) {
 			

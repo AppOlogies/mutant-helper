@@ -4,24 +4,19 @@ package;
 import haxe.Timer;
 import haxe.Unserializer;
 import lime.app.Preloader;
-import lime.audio.AudioSource;
 import lime.audio.openal.AL;
 import lime.audio.AudioBuffer;
+import lime.graphics.Font;
 import lime.graphics.Image;
-import lime.system.ThreadPool;
-import lime.text.Font;
 import lime.utils.ByteArray;
 import lime.utils.UInt8Array;
 import lime.Assets;
 
-#if sys
+#if (sys || nodejs)
 import sys.FileSystem;
 #end
 
-#if (js && html5)
-import lime.net.URLLoader;
-import lime.net.URLRequest;
-#elseif flash
+#if flash
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.display.Loader;
@@ -40,7 +35,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 	public var type (default, null) = new Map <String, AssetType> ();
 	
 	private var lastModified:Float;
-	private var threadPool:ThreadPool;
 	private var timer:Timer;
 	
 	
@@ -52,6 +46,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/bakgrund.png", __ASSET__assets_bakgrund_png);
 		type.set ("assets/bakgrund.png", AssetType.IMAGE);
+		className.set ("assets/close_btn.png", __ASSET__assets_close_btn_png);
+		type.set ("assets/close_btn.png", AssetType.IMAGE);
 		className.set ("assets/minus.png", __ASSET__assets_minus_png);
 		type.set ("assets/minus.png", AssetType.IMAGE);
 		className.set ("assets/Nootype.otf", __ASSET__assets_nootype_otf);
@@ -70,6 +66,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		var id;
 		id = "assets/bakgrund.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/close_btn.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -112,7 +112,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
-		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_nootype_otf);
+		
+		openfl.text.Font.registerFont (__ASSET__assets_nootype_otf);
 		
 		
 		
@@ -126,6 +127,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/bakgrund.png", __ASSET__assets_bakgrund_png);
 		type.set ("assets/bakgrund.png", AssetType.IMAGE);
+		
+		className.set ("assets/close_btn.png", __ASSET__assets_close_btn_png);
+		type.set ("assets/close_btn.png", AssetType.IMAGE);
 		
 		className.set ("assets/minus.png", __ASSET__assets_minus_png);
 		type.set ("assets/minus.png", AssetType.IMAGE);
@@ -189,24 +193,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 	}
 	
 	
-	private function createThreadPool ():Void {
-		
-		threadPool = new ThreadPool (0, 2);
-		threadPool.doWork.add (function (id, data) {
-			
-			data.result = data.getMethod (id);
-			threadPool.sendComplete (data.handler, data);
-			
-		});
-		threadPool.onComplete.add (function (id, data) {
-			
-			data.handler (data.result);
-			
-		});
-		
-	}
-	
-	
 	public override function exists (id:String, type:String):Bool {
 		
 		var requestedType = type != null ? cast (type, AssetType) : null;
@@ -222,11 +208,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 			
 			#if flash
 			
-			if (requestedType == BINARY && (assetType == BINARY || assetType == TEXT || assetType == IMAGE)) {
+			if ((assetType == BINARY || assetType == TEXT) && requestedType == BINARY) {
 				
 				return true;
 				
-			} else if (requestedType == null || path.exists (id)) {
+			} else if (path.exists (id)) {
 				
 				return true;
 				
@@ -264,8 +250,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#else
 		
-		if (className.exists(id)) return AudioBuffer.fromBytes (cast (Type.createInstance (className.get (id), []), ByteArray));
-		else return AudioBuffer.fromFile (path.get (id));
+		return AudioBuffer.fromFile (path.get (id));
+		//if (className.exists(id)) return cast (Type.createInstance (className.get (id), []), Sound);
+		//else return new Sound (new URLRequest (path.get (id)), null, type.get (id) == MUSIC);
 		
 		#end
 		
@@ -276,37 +263,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		switch (type.get (id)) {
-			
-			case TEXT, BINARY:
-				
-				return cast (Type.createInstance (className.get (id), []), ByteArray);
-			
-			case IMAGE:
-				
-				var bitmapData = cast (Type.createInstance (className.get (id), []), BitmapData);
-				return bitmapData.getPixels (bitmapData.rect);
-			
-			default:
-				
-				return null;
-			
-		}
-		
 		return cast (Type.createInstance (className.get (id), []), ByteArray);
 		
 		#elseif html5
 		
 		var bytes:ByteArray = null;
-		var loader = Preloader.loaders.get (path.get (id));
-		
-		if (loader == null) {
-			
-			return null;
-			
-		}
-		
-		var data = loader.data;
+		var data = Preloader.loaders.get (path.get (id)).data;
 		
 		if (Std.is (data, String)) {
 			
@@ -343,34 +305,33 @@ class DefaultAssetLibrary extends AssetLibrary {
 	}
 	
 	
-	public override function getFont (id:String):Font {
+	public override function getFont (id:String):Dynamic /*Font*/ {
 		
-		#if flash
+		// TODO: Complete Lime Font API
 		
-		var src = Type.createInstance (className.get (id), []);
+		#if openfl
+		#if (flash || js)
 		
-		var font = new Font (src.fontName);
-		font.src = src;
-		return font;
-		
-		#elseif html5
-		
-		return cast (Type.createInstance (className.get (id), []), Font);
+		return cast (Type.createInstance (className.get (id), []), openfl.text.Font);
 		
 		#else
 		
 		if (className.exists (id)) {
 			
 			var fontClass = className.get (id);
-			return cast (Type.createInstance (fontClass, []), Font);
+			openfl.text.Font.registerFont (fontClass);
+			return cast (Type.createInstance (fontClass, []), openfl.text.Font);
 			
 		} else {
 			
-			return Font.fromFile (path.get (id));
+			return new openfl.text.Font (path.get (id));
 			
 		}
 		
 		#end
+		#end
+		
+		return null;
 		
 	}
 	
@@ -387,16 +348,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#else
 		
-		if (className.exists (id)) {
-			
-			var fontClass = className.get (id);
-			return cast (Type.createInstance (fontClass, []), Image);
-			
-		} else {
-			
-			return Image.fromFile (path.get (id));
-			
-		}
+		return Image.fromFile (path.get (id));
 		
 		#end
 		
@@ -453,15 +405,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if html5
 		
 		var bytes:ByteArray = null;
-		var loader = Preloader.loaders.get (path.get (id));
-		
-		if (loader == null) {
-			
-			return null;
-			
-		}
-		
-		var data = loader.data;
+		var data = Preloader.loaders.get (path.get (id)).data;
 		
 		if (Std.is (data, String)) {
 			
@@ -512,11 +456,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		//if (requestedType != AssetType.MUSIC && requestedType != AssetType.SOUND) {
+		if (requestedType != AssetType.MUSIC && requestedType != AssetType.SOUND) {
 			
 			return className.exists (id);
 			
-		//}
+		}
 		
 		#end
 		
@@ -547,26 +491,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 	
 	public override function loadAudioBuffer (id:String, handler:AudioBuffer -> Void):Void {
 		
-		#if (flash)
+		#if (flash || js)
 		
-		if (path.exists (id)) {
+		//if (path.exists (id)) {
 			
-			var soundLoader = new Sound ();
-			soundLoader.addEventListener (Event.COMPLETE, function (event) {
+		//	var loader = new Loader ();
+		//	loader.contentLoaderInfo.addEventListener (Event.COMPLETE, function (event) {
 				
-				var audioBuffer:AudioBuffer = new AudioBuffer();
-				audioBuffer.src = event.currentTarget;
-				handler (audioBuffer);
+		//		handler (cast (event.currentTarget.content, Bitmap).bitmapData);
 				
-			});
+		//	});
+		//	loader.load (new URLRequest (path.get (id)));
 			
-			soundLoader.load (new URLRequest (path.get (id)));
-			
-		} else {
+		//} else {
 			
 			handler (getAudioBuffer (id));
 			
-		}
+		//}
 		
 		#else
 		
@@ -601,35 +542,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 			
 		}
 		
-		#elseif html5
-		
-		if (path.exists (id)) {
-			
-			var loader = new URLLoader ();
-			loader.dataFormat = BINARY;
-			loader.onComplete.add (function (_):Void {
-				
-				handler (loader.data);
-				
-			});
-			
-			loader.load (new URLRequest (path.get (id)));
-			
-		} else {
-			
-			handler (getBytes (id));
-			
-		}
-		
 		#else
 		
-		if (threadPool == null) {
-			
-			createThreadPool ();
-			
-		}
-		
-		threadPool.queue (id, { handler: handler, getMethod: getBytes });
+		handler (getBytes (id));
 		
 		#end
 		
@@ -657,33 +572,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 			
 		}
 		
-		#elseif html5
-		
-		if (path.exists (id)) {
-			
-			var image = new js.html.Image ();
-			image.onload = function (_):Void {
-				
-				handler (Image.fromImageElement (image));
-				
-			}
-			image.src = path.get (id);
-			
-		} else {
-			
-			handler (getImage (id));
-			
-		}
-		
 		#else
 		
-		if (threadPool == null) {
-			
-			createThreadPool ();
-			
-		}
-		
-		threadPool.queue (id, { handler: handler, getMethod: getImage });
+		handler (getImage (id));
 		
 		#end
 		
@@ -703,8 +594,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 			var bytes = ByteArray.readFile ("assets/manifest");
 			#elseif (mac && java)
 			var bytes = ByteArray.readFile ("../Resources/manifest");
-			#elseif ios
-			var bytes = ByteArray.readFile ("assets/manifest");
 			#else
 			var bytes = ByteArray.readFile ("manifest");
 			#end
@@ -725,11 +614,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 							
 							if (!className.exists (asset.id)) {
 								
-								#if ios
-								path.set (asset.id, "assets/" + asset.path);
-								#else
 								path.set (asset.id, asset.path);
-								#end
 								type.set (asset.id, cast (asset.type, AssetType));
 								
 							}
@@ -758,7 +643,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 	
 	/*public override function loadMusic (id:String, handler:Dynamic -> Void):Void {
 		
-		#if (flash || html5)
+		#if (flash || js)
 		
 		//if (path.exists (id)) {
 			
@@ -787,26 +672,25 @@ class DefaultAssetLibrary extends AssetLibrary {
 	
 	public override function loadText (id:String, handler:String -> Void):Void {
 		
-		#if html5
+		//#if html5
 		
-		if (path.exists (id)) {
+		/*if (path.exists (id)) {
 			
 			var loader = new URLLoader ();
-			loader.onComplete.add (function (_):Void {
+			loader.addEventListener (Event.COMPLETE, function (event:Event) {
 				
-				handler (loader.data);
+				handler (event.currentTarget.data);
 				
 			});
-			
 			loader.load (new URLRequest (path.get (id)));
 			
 		} else {
 			
 			handler (getText (id));
 			
-		}
+		}*/
 		
-		#else
+		//#else
 		
 		var callback = function (bytes:ByteArray):Void {
 			
@@ -824,7 +708,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		loadBytes (id, callback);
 		
-		#end
+		//#end
 		
 	}
 	
@@ -836,6 +720,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__assets_bakgrund_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_close_btn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_minus_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_nootype_otf extends null { }
 @:keep @:bind #if display private #end class __ASSET__assets_plus_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -846,36 +731,38 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 #elseif html5
 
-
-
-@:keep #if display private #end class __ASSET__assets_nootype_otf extends lime.text.Font { public function new () { super (); name = "Radikal"; } } 
-
+#if openfl
 
 
 
+@:keep #if display private #end class __ASSET__assets_nootype_otf extends openfl.text.Font { public function new () { super (); fontName = "Radikal"; } } 
 
 
-#else
-
-
-
-#if (windows || mac || linux)
-
-
-@:image("Assets/bakgrund.png") #if display private #end class __ASSET__assets_bakgrund_png extends lime.graphics.Image {}
-@:image("Assets/minus.png") #if display private #end class __ASSET__assets_minus_png extends lime.graphics.Image {}
-@:font("Assets/Nootype.otf") #if display private #end class __ASSET__assets_nootype_otf extends lime.text.Font {}
-@:image("Assets/plus.png") #if display private #end class __ASSET__assets_plus_png extends lime.graphics.Image {}
-@:image("Assets/plusknapp.png") #if display private #end class __ASSET__assets_plusknapp_png extends lime.graphics.Image {}
-@:image("Assets/ram.png") #if display private #end class __ASSET__assets_ram_png extends lime.graphics.Image {}
-@:image("Assets/slumpknapp.png") #if display private #end class __ASSET__assets_slumpknapp_png extends lime.graphics.Image {}
 
 
 
 #end
 
+#else
+
 #if openfl
-@:keep #if display private #end class __ASSET__OPENFL__assets_nootype_otf extends openfl.text.Font { public function new () { var font = new __ASSET__assets_nootype_otf (); src = font.src; name = font.name; super (); }}
+@:keep class __ASSET__assets_nootype_otf extends openfl.text.Font { public function new () { super (); __fontPath = "assets/Nootype"; fontName = "Radikal"; }}
+
+#end
+
+#if (windows || mac || linux)
+
+
+@:bitmap("Assets/bakgrund.png") class __ASSET__assets_bakgrund_png extends lime.graphics.Image {}
+@:bitmap("Assets/close_btn.png") class __ASSET__assets_close_btn_png extends lime.graphics.Image {}
+@:bitmap("Assets/minus.png") class __ASSET__assets_minus_png extends lime.graphics.Image {}
+@:font("Assets/Nootype.otf") class __ASSET__assets_nootype_otf extends lime.graphics.Font {}
+@:bitmap("Assets/plus.png") class __ASSET__assets_plus_png extends lime.graphics.Image {}
+@:bitmap("Assets/plusknapp.png") class __ASSET__assets_plusknapp_png extends lime.graphics.Image {}
+@:bitmap("Assets/ram.png") class __ASSET__assets_ram_png extends lime.graphics.Image {}
+@:bitmap("Assets/slumpknapp.png") class __ASSET__assets_slumpknapp_png extends lime.graphics.Image {}
+
+
 
 #end
 

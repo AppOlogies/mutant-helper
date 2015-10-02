@@ -5,6 +5,7 @@ import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.events.MouseEvent;
 import openfl.events.Event;
+import openfl.Lib;
 
 
 class CanvasOBJ extends Sprite
@@ -18,6 +19,8 @@ class CanvasOBJ extends Sprite
 	var n:Int = 0;
 	var gubbPos:Int = 0;
 	public var canvasLength:Int = 0;
+	
+	
 	
 	
 	public function new() 
@@ -40,19 +43,18 @@ class CanvasOBJ extends Sprite
 		
 		gubbPosition();
 		
-		char.closeBTN.addEventListener(MouseEvent.CLICK, killGubbe);
 		char.addEventListener(Event.REMOVED, removeGubbe);
 	}
 	private function gubbPosition()
 	{
-		gubbPos =0; 
+		gubbPos =35; 
 		n = 0;
 		
 		for (i in gubbArray)
 		{
 			tempchar = gubbArray[n];
 			tempchar.y = gubbPos;
-			gubbPos += 480;
+			gubbPos += 520;
 			defBTN.y = gubbPos + 20;
 			tempchar.gubbIndex = n;
 			n++;
@@ -66,13 +68,6 @@ class CanvasOBJ extends Sprite
 		canvasLength = gubbPos;
 	}
 	
-	private function killGubbe(e:MouseEvent)
-	{
-		tempchar = e.currentTarget;
-		
-		removeChild(tempchar.parent);
-				
-	}
 	
 	private function removeGubbe(e:Event)
 	{

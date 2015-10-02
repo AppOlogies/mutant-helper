@@ -1,0 +1,23 @@
+-main ApplicationMain 
+-cp C:/HaxeToolkit/haxe/lib/openfl/2,2,7
+-D openfl=2.2.7
+-cp C:/HaxeToolkit/haxe/lib/hxcpp/3,1,68
+-D hxcpp=3.1.68
+-cp Source
+-cp C:\HaxeToolkit\haxe\lib\lime/2,1,2/legacy
+-D tools=2.1.2
+-D lime-legacy
+-D no-compilation
+-D native
+-D openfl-native
+-D lime-native
+-D fdb
+-D android
+-D mobile
+--remap flash:openfl
+-cp Export/android/haxe
+-cpp Export/android/obj
+-D android
+-D android-9
+-debug
+--macro keep("Main")

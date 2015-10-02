@@ -19,26 +19,23 @@ class HXCPP_CLASS_ATTRIBUTES  Output_obj : public hx::Object{
 		Void __construct();
 
 	public:
-		inline void *operator new( size_t inSize, bool inContainer=false,const char *inName="haxe.io.Output")
-			{ return hx::Object::operator new(inSize,inContainer,inName); }
+		inline void *operator new( size_t inSize, bool inContainer=false)
+			{ return hx::Object::operator new(inSize,inContainer); }
 		static hx::ObjectPtr< Output_obj > __new();
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~Output_obj();
 
-		HX_DO_RTTI_ALL;
-		Dynamic __Field(const ::String &inString, hx::PropertyAccess inCallProp);
+		HX_DO_RTTI;
+		static void __boot();
 		static void __register();
-		::String __ToString() const { return HX_HCSTRING("Output","\x21","\x83","\x15","\x41"); }
+		::String __ToString() const { return HX_CSTRING("Output"); }
 
 		virtual Void writeByte( int c);
 		Dynamic writeByte_dyn();
 
 		virtual int writeBytes( ::haxe::io::Bytes s,int pos,int len);
 		Dynamic writeBytes_dyn();
-
-		virtual Void close( );
-		Dynamic close_dyn();
 
 		virtual Void write( ::haxe::io::Bytes s);
 		Dynamic write_dyn();

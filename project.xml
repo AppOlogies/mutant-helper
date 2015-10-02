@@ -4,7 +4,10 @@
 	<meta title="Mutant" package="com.sample.project" version="1.0.0" company="Company Name" />
 	<app main="Main" path="Export" file="Mutant" />
 	
-	<window width="640" height="960" />
+	<window width="660" height="1000" fps="60" background="#000000" hardware="true" vsync="true"/>
+	
+	<!--Mobile-specific-->
+	<window if="mobile" width="0" height="0" orientation="portrait" fullscreen="true"/>
 	
 	<source path="Source" />
 	

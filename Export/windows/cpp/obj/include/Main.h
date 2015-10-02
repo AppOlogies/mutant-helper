@@ -5,56 +5,53 @@
 #include <hxcpp.h>
 #endif
 
-#ifndef INCLUDED_openfl_display_Sprite
-#include <openfl/display/Sprite.h>
-#endif
+#include <openfl/_v2/display/Sprite.h>
 HX_DECLARE_CLASS0(CanvasOBJ)
 HX_DECLARE_CLASS0(Main)
-HX_DECLARE_CLASS2(openfl,display,Bitmap)
-HX_DECLARE_CLASS2(openfl,display,DisplayObject)
-HX_DECLARE_CLASS2(openfl,display,DisplayObjectContainer)
-HX_DECLARE_CLASS2(openfl,display,IBitmapDrawable)
-HX_DECLARE_CLASS2(openfl,display,InteractiveObject)
-HX_DECLARE_CLASS2(openfl,display,Sprite)
-HX_DECLARE_CLASS2(openfl,events,Event)
-HX_DECLARE_CLASS2(openfl,events,EventDispatcher)
-HX_DECLARE_CLASS2(openfl,events,IEventDispatcher)
-HX_DECLARE_CLASS2(openfl,events,MouseEvent)
-HX_DECLARE_CLASS2(openfl,geom,Rectangle)
+HX_DECLARE_CLASS3(openfl,_v2,display,Bitmap)
+HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObject)
+HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObjectContainer)
+HX_DECLARE_CLASS3(openfl,_v2,display,IBitmapDrawable)
+HX_DECLARE_CLASS3(openfl,_v2,display,InteractiveObject)
+HX_DECLARE_CLASS3(openfl,_v2,display,Sprite)
+HX_DECLARE_CLASS3(openfl,_v2,events,Event)
+HX_DECLARE_CLASS3(openfl,_v2,events,EventDispatcher)
+HX_DECLARE_CLASS3(openfl,_v2,events,IEventDispatcher)
+HX_DECLARE_CLASS3(openfl,_v2,events,MouseEvent)
+HX_DECLARE_CLASS3(openfl,_v2,geom,Rectangle)
 
 
-class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::openfl::display::Sprite_obj{
+class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::openfl::_v2::display::Sprite_obj{
 	public:
-		typedef ::openfl::display::Sprite_obj super;
+		typedef ::openfl::_v2::display::Sprite_obj super;
 		typedef Main_obj OBJ_;
 		Main_obj();
 		Void __construct();
 
 	public:
-		inline void *operator new( size_t inSize, bool inContainer=true,const char *inName="Main")
-			{ return hx::Object::operator new(inSize,inContainer,inName); }
+		inline void *operator new( size_t inSize, bool inContainer=true)
+			{ return hx::Object::operator new(inSize,inContainer); }
 		static hx::ObjectPtr< Main_obj > __new();
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~Main_obj();
 
-		HX_DO_RTTI_ALL;
-		Dynamic __Field(const ::String &inString, hx::PropertyAccess inCallProp);
-		Dynamic __SetField(const ::String &inString,const Dynamic &inValue, hx::PropertyAccess inCallProp);
-		static bool __SetStatic(const ::String &inString, Dynamic &ioValue, hx::PropertyAccess inCallProp);
-		void __GetFields(Array< ::String> &outFields);
+		HX_DO_RTTI;
+		static void __boot();
 		static void __register();
 		void __Mark(HX_MARK_PARAMS);
 		void __Visit(HX_VISIT_PARAMS);
-		::String __ToString() const { return HX_HCSTRING("Main","\x59","\x64","\x2f","\x33"); }
+		::String __ToString() const { return HX_CSTRING("Main"); }
 
-		::openfl::display::Bitmap BG;
+		::openfl::_v2::display::Bitmap BG;
 		::CanvasOBJ canvas;
-		::openfl::geom::Rectangle bounds;
-		virtual Void dragSTART( ::openfl::events::MouseEvent e);
+		::openfl::_v2::geom::Rectangle bounds;
+		int canLength;
+		int offset;
+		virtual Void dragSTART( ::openfl::_v2::events::MouseEvent e);
 		Dynamic dragSTART_dyn();
 
-		virtual Void dragEND( ::openfl::events::MouseEvent e);
+		virtual Void dragEND( ::openfl::_v2::events::MouseEvent e);
 		Dynamic dragEND_dyn();
 
 };
