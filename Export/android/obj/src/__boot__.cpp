@@ -158,6 +158,7 @@
 #include <StringTools.h>
 #include <StringBuf.h>
 #include <Reflect.h>
+#include <NameInput.h>
 #include <IMap.h>
 #include <List.h>
 #include <Lambda.h>
@@ -355,6 +356,7 @@ hx::RegisterResources( hx::GetResources() );
 ::StringTools_obj::__register();
 ::StringBuf_obj::__register();
 ::Reflect_obj::__register();
+::NameInput_obj::__register();
 ::IMap_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
@@ -424,6 +426,7 @@ hx::RegisterResources( hx::GetResources() );
 ::Lambda_obj::__boot();
 ::List_obj::__boot();
 ::IMap_obj::__boot();
+::NameInput_obj::__boot();
 ::Reflect_obj::__boot();
 ::StringBuf_obj::__boot();
 ::StringTools_obj::__boot();

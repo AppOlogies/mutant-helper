@@ -17,6 +17,7 @@ import openfl.text.TextFormat;
 class CharOBJ extends Sprite
 {
 	var ram:Bitmap;
+	var nameBG:Bitmap;
 	var plus:CharOBJOperator;
 	var minus:CharOBJOperator;
 	var plusXcord:Int = 0;
@@ -34,6 +35,9 @@ class CharOBJ extends Sprite
 	var skarpaField:TextField = new TextField();
 	var kanslaField:TextField = new TextField();
 	var nameField:TextField = new TextField();
+	var nameString:String = "Namn";
+	var nameinput:NameInput;
+	var nameinputClose:Sprite;
 	//var brutenField:TextField = new TextField();
 	
 	var plusBTN:CharOBJOperator;
@@ -46,13 +50,13 @@ class CharOBJ extends Sprite
 	public var gubbIndex:Int;
 	public var closeBTN:Sprite;
 	var closeBitmap:Bitmap;
+	var closeBitmap2:Bitmap;
 	
 	public function new(index) 
 	{
 		super();
 		textFormat = new TextFormat();
 		textFormat.font = "assets/Nootype.otf";
-		textFormat.align = "center";
 		textFormat.size = 60;
 		textFormat.color = 0x12fe16;
 		
@@ -78,40 +82,52 @@ class CharOBJ extends Sprite
 		styrkaField.x = 70;
 		styrkaField.y = 170;			
 		styrkaField.text = "" + styrka;
+		styrkaField.selectable = false;
 		addChild(styrkaField);
 		
 		kylaField.defaultTextFormat = textFormat;
 		kylaField.x = 230;
 		kylaField.y = 170;
 		kylaField.text = "" + kyla;		
+		kylaField.selectable = false;
 		addChild(kylaField);
 		
 		skarpaField.defaultTextFormat = textFormat;
 		skarpaField.x = 380;
 		skarpaField.y = 170;
-		skarpaField.text = "" + skarpa;		
+		skarpaField.text = "" + skarpa;	
+		skarpaField.selectable = false;
 		addChild(skarpaField);
 		
 		kanslaField.defaultTextFormat = textFormat;
 		kanslaField.x = 530;
 		kanslaField.y = 170;
 		kanslaField.text = "" + kansla;		
+		kanslaField.selectable = false;
 		addChild(kanslaField);
 		
+		nameBG = new Bitmap(Assets.getBitmapData("assets/namebg.png"));
+		nameBG.x = 330 - nameBG.width/2;
+		nameBG.y = -30;
+		//nameBG.addEventListener(MouseEvent.CLICK, nameinputfunction);
+		addChild(nameBG);
+		
+		
 		nameField.defaultTextFormat = textFormat;
-		nameField.textColor = 0x000000;
-		nameField.background = true;
-		nameField.backgroundColor =0x11fa15;
-		//nameField.autoSize = TextFieldAutoSize.CENTER;
-		nameField.text = "Namn";
+		//nameField.textColor = 0x000000;
+		nameField.autoSize = TextFieldAutoSize.LEFT;
+		nameField.text = nameString;
 		nameField.width = 350;
 		nameField.height = 70;
-		nameField.x = 330 - nameField.width / 2;
-		nameField.y = -30;
-		nameField.selectable = true;
+		nameField.x = 210;
+		nameField.y = -17;
+		nameField.selectable = false;
 		nameField.type = TextFieldType.INPUT;
+		nameField.maxChars = 10;
+		nameField.addEventListener(MouseEvent.CLICK, nameinputfunction);
 		addChild(nameField);
 		
+
 		
 		for (i in 0...4)
 		{
@@ -246,6 +262,37 @@ class CharOBJ extends Sprite
 	function removeME(e:MouseEvent):Void
 	{
 		this.parent.removeChild(this);
+		
+	}
+	
+	
+	function nameinputfunction(e:MouseEvent):Void
+	{
+		
+		nameinput = new NameInput();
+		nameinput.x = this.x + 125;
+		nameinput.y = this.y - 60;
+		addChild(nameinput);
+		
+		nameinputClose = new Sprite();
+		closeBitmap2 = new Bitmap(Assets.getBitmapData("assets/close_btn.png"));
+		nameinputClose.addChild(closeBitmap2);
+		nameinputClose.x = 445;
+		nameinputClose.y = -20;
+		addChild(nameinputClose);
+		nameinputClose.addEventListener(MouseEvent.CLICK, getnamestring);
+		
+		
+	}
+	
+	function getnamestring(e:MouseEvent):Void
+	{
+		
+		nameString = nameinput.nameField.text;
+		nameField.text = nameString;
+		removeChild(nameinputClose);
+		removeChild(nameinput);
+		
 		
 	}
 	

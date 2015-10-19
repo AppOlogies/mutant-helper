@@ -37,6 +37,14 @@ class ApplicationMain {
 		types.push (AssetType.IMAGE);
 		
 		
+		urls.push ("assets/namebg.png");
+		types.push (AssetType.IMAGE);
+		
+		
+		urls.push ("assets/nameClass_BG.png");
+		types.push (AssetType.IMAGE);
+		
+		
 		urls.push ("Radikal");
 		types.push (AssetType.FONT);
 		

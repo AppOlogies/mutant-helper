@@ -6,6 +6,9 @@
 #ifndef INCLUDED_CharOBJOperator
 #include <CharOBJOperator.h>
 #endif
+#ifndef INCLUDED_NameInput
+#include <NameInput.h>
+#endif
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
 #endif
@@ -67,251 +70,279 @@ HX_STACK_FRAME("CharOBJ","new",0x31766413,"CharOBJ.new","CharOBJ.hx",17,0xfdecfe
 HX_STACK_THIS(this)
 HX_STACK_ARG(index,"index")
 {
-	HX_STACK_LINE(44)
+	HX_STACK_LINE(48)
 	this->textButton = ::openfl::_v2::display::Sprite_obj::__new();
-	HX_STACK_LINE(36)
+	HX_STACK_LINE(38)
+	this->nameString = HX_CSTRING("Namn");
+	HX_STACK_LINE(37)
 	this->nameField = ::openfl::_v2::text::TextField_obj::__new();
-	HX_STACK_LINE(35)
+	HX_STACK_LINE(36)
 	this->kanslaField = ::openfl::_v2::text::TextField_obj::__new();
-	HX_STACK_LINE(34)
+	HX_STACK_LINE(35)
 	this->skarpaField = ::openfl::_v2::text::TextField_obj::__new();
-	HX_STACK_LINE(33)
+	HX_STACK_LINE(34)
 	this->kylaField = ::openfl::_v2::text::TextField_obj::__new();
-	HX_STACK_LINE(32)
+	HX_STACK_LINE(33)
 	this->styrkaField = ::openfl::_v2::text::TextField_obj::__new();
-	HX_STACK_LINE(30)
+	HX_STACK_LINE(31)
 	this->kansla = (int)0;
-	HX_STACK_LINE(29)
+	HX_STACK_LINE(30)
 	this->skarpa = (int)0;
-	HX_STACK_LINE(28)
+	HX_STACK_LINE(29)
 	this->kyla = (int)0;
-	HX_STACK_LINE(27)
+	HX_STACK_LINE(28)
 	this->styrka = (int)0;
-	HX_STACK_LINE(23)
+	HX_STACK_LINE(24)
 	this->minusXcord = (int)0;
-	HX_STACK_LINE(22)
+	HX_STACK_LINE(23)
 	this->plusXcord = (int)0;
-	HX_STACK_LINE(52)
+	HX_STACK_LINE(57)
 	super::__construct();
-	HX_STACK_LINE(53)
-	::openfl::_v2::text::TextFormat _g = ::openfl::_v2::text::TextFormat_obj::__new(null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(53)
-	this->textFormat = _g;
-	HX_STACK_LINE(54)
-	this->textFormat->font = HX_CSTRING("assets/Nootype.otf");
-	HX_STACK_LINE(55)
-	this->textFormat->size = (int)60;
-	HX_STACK_LINE(56)
-	this->textFormat->color = (int)1244694;
 	HX_STACK_LINE(58)
-	this->gubbIndex = index;
+	::openfl::_v2::text::TextFormat _g = ::openfl::_v2::text::TextFormat_obj::__new(null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(58)
+	this->textFormat = _g;
+	HX_STACK_LINE(59)
+	this->textFormat->font = HX_CSTRING("assets/Nootype.otf");
 	HX_STACK_LINE(60)
-	::openfl::_v2::display::BitmapData _g1 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/ram.png"),null());		HX_STACK_VAR(_g1,"_g1");
-	HX_STACK_LINE(60)
-	::openfl::_v2::display::Bitmap _g2 = ::openfl::_v2::display::Bitmap_obj::__new(_g1,null(),null());		HX_STACK_VAR(_g2,"_g2");
-	HX_STACK_LINE(60)
-	this->ram = _g2;
+	this->textFormat->size = (int)60;
 	HX_STACK_LINE(61)
-	this->addChild(this->ram);
+	this->textFormat->color = (int)1244694;
 	HX_STACK_LINE(63)
-	::openfl::_v2::display::Sprite _g3 = ::openfl::_v2::display::Sprite_obj::__new();		HX_STACK_VAR(_g3,"_g3");
-	HX_STACK_LINE(63)
-	this->closeBTN = _g3;
-	HX_STACK_LINE(64)
-	this->addChild(this->closeBTN);
+	this->gubbIndex = index;
 	HX_STACK_LINE(65)
-	::openfl::_v2::display::BitmapData _g4 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/close_btn.png"),null());		HX_STACK_VAR(_g4,"_g4");
+	::openfl::_v2::display::BitmapData _g1 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/ram.png"),null());		HX_STACK_VAR(_g1,"_g1");
 	HX_STACK_LINE(65)
-	::openfl::_v2::display::Bitmap _g5 = ::openfl::_v2::display::Bitmap_obj::__new(_g4,null(),null());		HX_STACK_VAR(_g5,"_g5");
+	::openfl::_v2::display::Bitmap _g2 = ::openfl::_v2::display::Bitmap_obj::__new(_g1,null(),null());		HX_STACK_VAR(_g2,"_g2");
 	HX_STACK_LINE(65)
-	this->closeBitmap = _g5;
+	this->ram = _g2;
 	HX_STACK_LINE(66)
-	this->closeBitmap->set_x((int)600);
-	HX_STACK_LINE(67)
-	this->closeBitmap->set_y((int)15);
+	this->addChild(this->ram);
 	HX_STACK_LINE(68)
-	this->closeBTN->addChild(this->closeBitmap);
+	::openfl::_v2::display::Sprite _g3 = ::openfl::_v2::display::Sprite_obj::__new();		HX_STACK_VAR(_g3,"_g3");
+	HX_STACK_LINE(68)
+	this->closeBTN = _g3;
+	HX_STACK_LINE(69)
+	this->addChild(this->closeBTN);
 	HX_STACK_LINE(70)
+	::openfl::_v2::display::BitmapData _g4 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/close_btn.png"),null());		HX_STACK_VAR(_g4,"_g4");
+	HX_STACK_LINE(70)
+	::openfl::_v2::display::Bitmap _g5 = ::openfl::_v2::display::Bitmap_obj::__new(_g4,null(),null());		HX_STACK_VAR(_g5,"_g5");
+	HX_STACK_LINE(70)
+	this->closeBitmap = _g5;
+	HX_STACK_LINE(71)
+	this->closeBitmap->set_x((int)600);
+	HX_STACK_LINE(72)
+	this->closeBitmap->set_y((int)15);
+	HX_STACK_LINE(73)
+	this->closeBTN->addChild(this->closeBitmap);
+	HX_STACK_LINE(75)
 	this->closeBTN->addEventListener(::openfl::_v2::events::MouseEvent_obj::CLICK,this->removeME_dyn(),null(),null(),null());
-	HX_STACK_LINE(73)
-	Array< ::Dynamic > _g6 = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(_g6,"_g6");
-	HX_STACK_LINE(73)
-	this->plusArray = _g6;
-	HX_STACK_LINE(74)
-	Array< ::Dynamic > _g7 = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(_g7,"_g7");
-	HX_STACK_LINE(74)
-	this->minusArray = _g7;
-	HX_STACK_LINE(76)
-	this->styrkaField->set_defaultTextFormat(this->textFormat);
-	HX_STACK_LINE(77)
-	this->styrkaField->set_x((int)70);
 	HX_STACK_LINE(78)
-	this->styrkaField->set_y((int)170);
+	Array< ::Dynamic > _g6 = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(_g6,"_g6");
+	HX_STACK_LINE(78)
+	this->plusArray = _g6;
 	HX_STACK_LINE(79)
-	this->styrkaField->set_text((HX_CSTRING("") + this->styrka));
-	HX_STACK_LINE(80)
-	this->addChild(this->styrkaField);
+	Array< ::Dynamic > _g7 = Array_obj< ::Dynamic >::__new();		HX_STACK_VAR(_g7,"_g7");
+	HX_STACK_LINE(79)
+	this->minusArray = _g7;
+	HX_STACK_LINE(81)
+	this->styrkaField->set_defaultTextFormat(this->textFormat);
 	HX_STACK_LINE(82)
-	this->kylaField->set_defaultTextFormat(this->textFormat);
+	this->styrkaField->set_x((int)70);
 	HX_STACK_LINE(83)
-	this->kylaField->set_x((int)230);
+	this->styrkaField->set_y((int)170);
 	HX_STACK_LINE(84)
-	this->kylaField->set_y((int)170);
+	this->styrkaField->set_text((HX_CSTRING("") + this->styrka));
 	HX_STACK_LINE(85)
-	this->kylaField->set_text((HX_CSTRING("") + this->kyla));
+	this->styrkaField->set_selectable(false);
 	HX_STACK_LINE(86)
-	this->addChild(this->kylaField);
+	this->addChild(this->styrkaField);
 	HX_STACK_LINE(88)
-	this->skarpaField->set_defaultTextFormat(this->textFormat);
+	this->kylaField->set_defaultTextFormat(this->textFormat);
 	HX_STACK_LINE(89)
-	this->skarpaField->set_x((int)380);
+	this->kylaField->set_x((int)230);
 	HX_STACK_LINE(90)
-	this->skarpaField->set_y((int)170);
+	this->kylaField->set_y((int)170);
 	HX_STACK_LINE(91)
-	this->skarpaField->set_text((HX_CSTRING("") + this->skarpa));
+	this->kylaField->set_text((HX_CSTRING("") + this->kyla));
 	HX_STACK_LINE(92)
-	this->addChild(this->skarpaField);
-	HX_STACK_LINE(94)
-	this->kanslaField->set_defaultTextFormat(this->textFormat);
+	this->kylaField->set_selectable(false);
+	HX_STACK_LINE(93)
+	this->addChild(this->kylaField);
 	HX_STACK_LINE(95)
-	this->kanslaField->set_x((int)530);
+	this->skarpaField->set_defaultTextFormat(this->textFormat);
 	HX_STACK_LINE(96)
-	this->kanslaField->set_y((int)170);
+	this->skarpaField->set_x((int)380);
 	HX_STACK_LINE(97)
-	this->kanslaField->set_text((HX_CSTRING("") + this->kansla));
+	this->skarpaField->set_y((int)170);
 	HX_STACK_LINE(98)
-	this->addChild(this->kanslaField);
+	this->skarpaField->set_text((HX_CSTRING("") + this->skarpa));
+	HX_STACK_LINE(99)
+	this->skarpaField->set_selectable(false);
 	HX_STACK_LINE(100)
-	this->nameField->set_defaultTextFormat(this->textFormat);
-	HX_STACK_LINE(101)
-	this->nameField->set_textColor((int)0);
+	this->addChild(this->skarpaField);
 	HX_STACK_LINE(102)
-	this->nameField->set_autoSize(::openfl::text::TextFieldAutoSize_obj::CENTER);
+	this->kanslaField->set_defaultTextFormat(this->textFormat);
 	HX_STACK_LINE(103)
-	this->nameField->set_text(HX_CSTRING("Namn"));
+	this->kanslaField->set_x((int)530);
 	HX_STACK_LINE(104)
-	Float _g8 = this->nameField->get_width();		HX_STACK_VAR(_g8,"_g8");
-	HX_STACK_LINE(104)
-	Float _g9 = (Float(_g8) / Float((int)2));		HX_STACK_VAR(_g9,"_g9");
-	HX_STACK_LINE(104)
-	Float _g10 = ((int)330 - _g9);		HX_STACK_VAR(_g10,"_g10");
-	HX_STACK_LINE(104)
-	this->nameField->set_x(_g10);
+	this->kanslaField->set_y((int)170);
 	HX_STACK_LINE(105)
-	this->nameField->set_y((int)400);
+	this->kanslaField->set_text((HX_CSTRING("") + this->kansla));
 	HX_STACK_LINE(106)
-	this->nameField->set_selectable(true);
+	this->kanslaField->set_selectable(false);
 	HX_STACK_LINE(107)
-	this->nameField->set_type(::openfl::text::TextFieldType_obj::INPUT);
-	HX_STACK_LINE(108)
-	this->addChild(this->nameField);
+	this->addChild(this->kanslaField);
+	HX_STACK_LINE(109)
+	::openfl::_v2::display::BitmapData _g8 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/namebg.png"),null());		HX_STACK_VAR(_g8,"_g8");
+	HX_STACK_LINE(109)
+	::openfl::_v2::display::Bitmap _g9 = ::openfl::_v2::display::Bitmap_obj::__new(_g8,null(),null());		HX_STACK_VAR(_g9,"_g9");
+	HX_STACK_LINE(109)
+	this->nameBG = _g9;
+	HX_STACK_LINE(110)
+	Float _g10 = this->nameBG->get_width();		HX_STACK_VAR(_g10,"_g10");
+	HX_STACK_LINE(110)
+	Float _g11 = (Float(_g10) / Float((int)2));		HX_STACK_VAR(_g11,"_g11");
+	HX_STACK_LINE(110)
+	Float _g12 = ((int)330 - _g11);		HX_STACK_VAR(_g12,"_g12");
+	HX_STACK_LINE(110)
+	this->nameBG->set_x(_g12);
 	HX_STACK_LINE(111)
+	this->nameBG->set_y((int)-30);
+	HX_STACK_LINE(113)
+	this->addChild(this->nameBG);
+	HX_STACK_LINE(116)
+	this->nameField->set_defaultTextFormat(this->textFormat);
+	HX_STACK_LINE(118)
+	this->nameField->set_autoSize(::openfl::text::TextFieldAutoSize_obj::LEFT);
+	HX_STACK_LINE(119)
+	this->nameField->set_text(this->nameString);
+	HX_STACK_LINE(120)
+	this->nameField->set_width((int)350);
+	HX_STACK_LINE(121)
+	this->nameField->set_height((int)70);
+	HX_STACK_LINE(122)
+	this->nameField->set_x((int)210);
+	HX_STACK_LINE(123)
+	this->nameField->set_y((int)-17);
+	HX_STACK_LINE(124)
+	this->nameField->set_selectable(false);
+	HX_STACK_LINE(125)
+	this->nameField->set_type(::openfl::text::TextFieldType_obj::INPUT);
+	HX_STACK_LINE(126)
+	this->nameField->set_maxChars((int)10);
+	HX_STACK_LINE(127)
+	this->nameField->addEventListener(::openfl::_v2::events::MouseEvent_obj::CLICK,this->nameinputfunction_dyn(),null(),null(),null());
+	HX_STACK_LINE(128)
+	this->addChild(this->nameField);
+	HX_STACK_LINE(132)
 	{
-		HX_STACK_LINE(111)
-		int _g11 = (int)0;		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(111)
+		HX_STACK_LINE(132)
+		int _g13 = (int)0;		HX_STACK_VAR(_g13,"_g13");
+		HX_STACK_LINE(132)
 		while((true)){
-			HX_STACK_LINE(111)
-			if ((!(((_g11 < (int)4))))){
-				HX_STACK_LINE(111)
+			HX_STACK_LINE(132)
+			if ((!(((_g13 < (int)4))))){
+				HX_STACK_LINE(132)
 				break;
 			}
-			HX_STACK_LINE(111)
-			int i = (_g11)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(113)
-			::CharOBJOperator _g111 = ::CharOBJOperator_obj::__new(i);		HX_STACK_VAR(_g111,"_g111");
-			HX_STACK_LINE(113)
-			this->plus = _g111;
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(132)
+			int i = (_g13)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(134)
+			::CharOBJOperator _g131 = ::CharOBJOperator_obj::__new(i);		HX_STACK_VAR(_g131,"_g131");
+			HX_STACK_LINE(134)
+			this->plus = _g131;
+			HX_STACK_LINE(135)
 			this->plus->set_x((this->plusXcord + (int)70));
-			HX_STACK_LINE(115)
+			HX_STACK_LINE(136)
 			hx::AddEq(this->plusXcord,(int)155);
-			HX_STACK_LINE(116)
+			HX_STACK_LINE(137)
 			this->plus->set_y((int)100);
-			HX_STACK_LINE(117)
+			HX_STACK_LINE(138)
 			this->plusArray->insert(i,this->plus);
-			HX_STACK_LINE(118)
+			HX_STACK_LINE(139)
 			this->addChild(this->plus);
 		}
 	}
-	HX_STACK_LINE(120)
+	HX_STACK_LINE(141)
 	{
-		HX_STACK_LINE(120)
-		int _g11 = (int)0;		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(120)
+		HX_STACK_LINE(141)
+		int _g13 = (int)0;		HX_STACK_VAR(_g13,"_g13");
+		HX_STACK_LINE(141)
 		while((true)){
-			HX_STACK_LINE(120)
-			if ((!(((_g11 < (int)4))))){
-				HX_STACK_LINE(120)
+			HX_STACK_LINE(141)
+			if ((!(((_g13 < (int)4))))){
+				HX_STACK_LINE(141)
 				break;
 			}
-			HX_STACK_LINE(120)
-			int i = (_g11)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(122)
+			HX_STACK_LINE(141)
+			int i = (_g13)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(143)
 			this->plusBTN = this->plusArray->__get(i).StaticCast< ::CharOBJOperator >();
-			HX_STACK_LINE(123)
+			HX_STACK_LINE(144)
 			this->plusBTN->addEventListener(::openfl::_v2::events::MouseEvent_obj::CLICK,this->changeValue_dyn(),null(),null(),null());
 		}
 	}
-	HX_STACK_LINE(125)
+	HX_STACK_LINE(146)
 	int j = (int)0;		HX_STACK_VAR(j,"j");
-	HX_STACK_LINE(126)
+	HX_STACK_LINE(147)
 	{
-		HX_STACK_LINE(126)
-		int _g11 = (int)4;		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(126)
+		HX_STACK_LINE(147)
+		int _g13 = (int)4;		HX_STACK_VAR(_g13,"_g13");
+		HX_STACK_LINE(147)
 		while((true)){
-			HX_STACK_LINE(126)
-			if ((!(((_g11 < (int)8))))){
-				HX_STACK_LINE(126)
+			HX_STACK_LINE(147)
+			if ((!(((_g13 < (int)8))))){
+				HX_STACK_LINE(147)
 				break;
 			}
-			HX_STACK_LINE(126)
-			int i = (_g11)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(128)
-			::haxe::Log_obj::trace((HX_CSTRING("creating minus object: ") + i),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),128,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
-			HX_STACK_LINE(129)
-			::CharOBJOperator _g12 = ::CharOBJOperator_obj::__new(i);		HX_STACK_VAR(_g12,"_g12");
-			HX_STACK_LINE(129)
-			this->minus = _g12;
-			HX_STACK_LINE(130)
+			HX_STACK_LINE(147)
+			int i = (_g13)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(149)
+			::haxe::Log_obj::trace((HX_CSTRING("creating minus object: ") + i),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),149,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
+			HX_STACK_LINE(150)
+			::CharOBJOperator _g14 = ::CharOBJOperator_obj::__new(i);		HX_STACK_VAR(_g14,"_g14");
+			HX_STACK_LINE(150)
+			this->minus = _g14;
+			HX_STACK_LINE(151)
 			this->minus->set_x((this->minusXcord + (int)70));
-			HX_STACK_LINE(131)
+			HX_STACK_LINE(152)
 			hx::AddEq(this->minusXcord,(int)155);
-			HX_STACK_LINE(132)
+			HX_STACK_LINE(153)
 			this->minus->set_y((int)250);
-			HX_STACK_LINE(133)
-			::haxe::Log_obj::trace((HX_CSTRING("adding minus to array: ") + j),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),133,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
-			HX_STACK_LINE(134)
+			HX_STACK_LINE(154)
+			::haxe::Log_obj::trace((HX_CSTRING("adding minus to array: ") + j),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),154,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
+			HX_STACK_LINE(155)
 			this->minusArray->insert(j,this->minus);
-			HX_STACK_LINE(135)
-			::haxe::Log_obj::trace(HX_CSTRING("added"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),135,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
-			HX_STACK_LINE(136)
+			HX_STACK_LINE(156)
+			::haxe::Log_obj::trace(HX_CSTRING("added"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),156,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
+			HX_STACK_LINE(157)
 			this->addChild(this->minus);
-			HX_STACK_LINE(137)
+			HX_STACK_LINE(158)
 			(j)++;
-			HX_STACK_LINE(138)
-			::haxe::Log_obj::trace(HX_CSTRING("reached end of function"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),138,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
+			HX_STACK_LINE(159)
+			::haxe::Log_obj::trace(HX_CSTRING("reached end of function"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),159,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
 		}
 	}
-	HX_STACK_LINE(140)
+	HX_STACK_LINE(161)
 	{
-		HX_STACK_LINE(140)
-		int _g11 = (int)0;		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(140)
+		HX_STACK_LINE(161)
+		int _g13 = (int)0;		HX_STACK_VAR(_g13,"_g13");
+		HX_STACK_LINE(161)
 		while((true)){
-			HX_STACK_LINE(140)
-			if ((!(((_g11 < (int)4))))){
-				HX_STACK_LINE(140)
+			HX_STACK_LINE(161)
+			if ((!(((_g13 < (int)4))))){
+				HX_STACK_LINE(161)
 				break;
 			}
-			HX_STACK_LINE(140)
-			int i = (_g11)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(142)
-			::haxe::Log_obj::trace((HX_CSTRING("adding minus to array: ") + i),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),142,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
-			HX_STACK_LINE(143)
+			HX_STACK_LINE(161)
+			int i = (_g13)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(163)
+			::haxe::Log_obj::trace((HX_CSTRING("adding minus to array: ") + i),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),163,HX_CSTRING("CharOBJ"),HX_CSTRING("new")));
+			HX_STACK_LINE(164)
 			this->minusBTN = this->minusArray->__get(i).StaticCast< ::CharOBJOperator >();
-			HX_STACK_LINE(144)
+			HX_STACK_LINE(165)
 			this->minusBTN->addEventListener(::openfl::_v2::events::MouseEvent_obj::CLICK,this->changeValue_dyn(),null(),null(),null());
 		}
 	}
@@ -335,88 +366,88 @@ Dynamic CharOBJ_obj::__Create(hx::DynamicArray inArgs)
 
 Void CharOBJ_obj::changeValue( ::openfl::_v2::events::MouseEvent e){
 {
-		HX_STACK_FRAME("CharOBJ","changeValue",0x98b82694,"CharOBJ.changeValue","CharOBJ.hx",149,0xfdecfebd)
+		HX_STACK_FRAME("CharOBJ","changeValue",0x98b82694,"CharOBJ.changeValue","CharOBJ.hx",170,0xfdecfebd)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(e,"e")
-		HX_STACK_LINE(150)
+		HX_STACK_LINE(171)
 		int id = e->get_currentTarget()->__Field(HX_CSTRING("id"),true);		HX_STACK_VAR(id,"id");
-		HX_STACK_LINE(151)
-		::haxe::Log_obj::trace(HX_CSTRING("button"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),151,HX_CSTRING("CharOBJ"),HX_CSTRING("changeValue")));
-		HX_STACK_LINE(152)
-		::haxe::Log_obj::trace(id,hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),152,HX_CSTRING("CharOBJ"),HX_CSTRING("changeValue")));
-		HX_STACK_LINE(153)
+		HX_STACK_LINE(172)
+		::haxe::Log_obj::trace(HX_CSTRING("button"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),172,HX_CSTRING("CharOBJ"),HX_CSTRING("changeValue")));
+		HX_STACK_LINE(173)
+		::haxe::Log_obj::trace(id,hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),173,HX_CSTRING("CharOBJ"),HX_CSTRING("changeValue")));
+		HX_STACK_LINE(174)
 		if (((bool((id == (int)0)) && bool((this->styrka < (int)10))))){
-			HX_STACK_LINE(154)
+			HX_STACK_LINE(175)
 			(this->styrka)++;
 		}
-		HX_STACK_LINE(155)
+		HX_STACK_LINE(176)
 		this->styrkaField->set_text((HX_CSTRING("") + this->styrka));
-		HX_STACK_LINE(156)
+		HX_STACK_LINE(177)
 		if (((bool((id == (int)1)) && bool((this->kyla < (int)10))))){
-			HX_STACK_LINE(157)
+			HX_STACK_LINE(178)
 			(this->kyla)++;
 		}
-		HX_STACK_LINE(158)
+		HX_STACK_LINE(179)
 		this->kylaField->set_text((HX_CSTRING("") + this->kyla));
-		HX_STACK_LINE(159)
+		HX_STACK_LINE(180)
 		if (((bool((id == (int)2)) && bool((this->skarpa < (int)10))))){
-			HX_STACK_LINE(160)
+			HX_STACK_LINE(181)
 			(this->skarpa)++;
 		}
-		HX_STACK_LINE(161)
+		HX_STACK_LINE(182)
 		this->skarpaField->set_text((HX_CSTRING("") + this->skarpa));
-		HX_STACK_LINE(162)
+		HX_STACK_LINE(183)
 		if (((bool((id == (int)3)) && bool((this->kansla < (int)10))))){
-			HX_STACK_LINE(163)
+			HX_STACK_LINE(184)
 			(this->kansla)++;
 		}
-		HX_STACK_LINE(164)
+		HX_STACK_LINE(185)
 		this->kanslaField->set_text((HX_CSTRING("") + this->kansla));
-		HX_STACK_LINE(165)
+		HX_STACK_LINE(186)
 		if (((bool((id == (int)4)) && bool((this->styrka > (int)0))))){
-			HX_STACK_LINE(167)
+			HX_STACK_LINE(188)
 			(this->styrka)--;
-			HX_STACK_LINE(168)
+			HX_STACK_LINE(189)
 			this->styrkaField->set_text((HX_CSTRING("") + this->styrka));
-			HX_STACK_LINE(169)
+			HX_STACK_LINE(190)
 			if (((this->styrka == (int)0))){
-				HX_STACK_LINE(171)
+				HX_STACK_LINE(192)
 				this->breakChar();
 			}
 		}
-		HX_STACK_LINE(174)
+		HX_STACK_LINE(195)
 		if (((bool((id == (int)5)) && bool((this->kyla > (int)0))))){
-			HX_STACK_LINE(176)
+			HX_STACK_LINE(197)
 			(this->kyla)--;
-			HX_STACK_LINE(177)
+			HX_STACK_LINE(198)
 			this->kylaField->set_text((HX_CSTRING("") + this->kyla));
-			HX_STACK_LINE(178)
+			HX_STACK_LINE(199)
 			if (((this->kyla == (int)0))){
-				HX_STACK_LINE(180)
+				HX_STACK_LINE(201)
 				this->breakChar();
 			}
 		}
-		HX_STACK_LINE(183)
+		HX_STACK_LINE(204)
 		if (((bool((id == (int)6)) && bool((this->skarpa > (int)0))))){
-			HX_STACK_LINE(185)
+			HX_STACK_LINE(206)
 			(this->skarpa)--;
-			HX_STACK_LINE(186)
+			HX_STACK_LINE(207)
 			this->skarpaField->set_text((HX_CSTRING("") + this->skarpa));
-			HX_STACK_LINE(187)
+			HX_STACK_LINE(208)
 			if (((this->skarpa == (int)0))){
-				HX_STACK_LINE(189)
+				HX_STACK_LINE(210)
 				this->breakChar();
 			}
 		}
-		HX_STACK_LINE(192)
+		HX_STACK_LINE(213)
 		if (((bool((id == (int)7)) && bool((this->kansla > (int)0))))){
-			HX_STACK_LINE(194)
+			HX_STACK_LINE(215)
 			(this->kansla)--;
-			HX_STACK_LINE(195)
+			HX_STACK_LINE(216)
 			this->kanslaField->set_text((HX_CSTRING("") + this->kansla));
-			HX_STACK_LINE(196)
+			HX_STACK_LINE(217)
 			if (((this->kansla == (int)0))){
-				HX_STACK_LINE(198)
+				HX_STACK_LINE(219)
 				this->breakChar();
 			}
 		}
@@ -429,21 +460,21 @@ HX_DEFINE_DYNAMIC_FUNC1(CharOBJ_obj,changeValue,(void))
 
 Void CharOBJ_obj::breakChar( ){
 {
-		HX_STACK_FRAME("CharOBJ","breakChar",0xcf445728,"CharOBJ.breakChar","CharOBJ.hx",204,0xfdecfebd)
+		HX_STACK_FRAME("CharOBJ","breakChar",0xcf445728,"CharOBJ.breakChar","CharOBJ.hx",225,0xfdecfebd)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(205)
+		HX_STACK_LINE(226)
 		this->removeChild(this->styrkaField);
-		HX_STACK_LINE(206)
+		HX_STACK_LINE(227)
 		this->removeChild(this->kylaField);
-		HX_STACK_LINE(207)
+		HX_STACK_LINE(228)
 		this->removeChild(this->skarpaField);
-		HX_STACK_LINE(208)
+		HX_STACK_LINE(229)
 		this->removeChild(this->kanslaField);
-		HX_STACK_LINE(209)
+		HX_STACK_LINE(230)
 		::openfl::_v2::display::Sprite _g = this->getTextButton(HX_CSTRING("BRUTEN!"));		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(209)
+		HX_STACK_LINE(230)
 		this->textButton = _g;
-		HX_STACK_LINE(210)
+		HX_STACK_LINE(231)
 		this->addChild(this->textButton);
 	}
 return null();
@@ -454,35 +485,35 @@ HX_DEFINE_DYNAMIC_FUNC0(CharOBJ_obj,breakChar,(void))
 
 Void CharOBJ_obj::unbreakChar( ::openfl::_v2::events::MouseEvent e){
 {
-		HX_STACK_FRAME("CharOBJ","unbreakChar",0xf8d0006f,"CharOBJ.unbreakChar","CharOBJ.hx",214,0xfdecfebd)
+		HX_STACK_FRAME("CharOBJ","unbreakChar",0xf8d0006f,"CharOBJ.unbreakChar","CharOBJ.hx",235,0xfdecfebd)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(e,"e")
-		HX_STACK_LINE(215)
-		::haxe::Log_obj::trace(HX_CSTRING("unbreaking"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),215,HX_CSTRING("CharOBJ"),HX_CSTRING("unbreakChar")));
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(236)
+		::haxe::Log_obj::trace(HX_CSTRING("unbreaking"),hx::SourceInfo(HX_CSTRING("CharOBJ.hx"),236,HX_CSTRING("CharOBJ"),HX_CSTRING("unbreakChar")));
+		HX_STACK_LINE(237)
 		this->removeChild(this->textButton);
-		HX_STACK_LINE(217)
+		HX_STACK_LINE(238)
 		this->addChild(this->styrkaField);
-		HX_STACK_LINE(218)
+		HX_STACK_LINE(239)
 		this->addChild(this->kylaField);
-		HX_STACK_LINE(219)
+		HX_STACK_LINE(240)
 		this->addChild(this->skarpaField);
-		HX_STACK_LINE(220)
+		HX_STACK_LINE(241)
 		this->addChild(this->kanslaField);
-		HX_STACK_LINE(221)
+		HX_STACK_LINE(242)
 		{
-			HX_STACK_LINE(221)
+			HX_STACK_LINE(242)
 			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(221)
+			HX_STACK_LINE(242)
 			while((true)){
-				HX_STACK_LINE(221)
+				HX_STACK_LINE(242)
 				if ((!(((_g < (int)4))))){
-					HX_STACK_LINE(221)
+					HX_STACK_LINE(242)
 					break;
 				}
-				HX_STACK_LINE(221)
+				HX_STACK_LINE(242)
 				int i = (_g)++;		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(221)
+				HX_STACK_LINE(242)
 				this->addChild(this->minusArray->__get(i).StaticCast< ::CharOBJOperator >());
 			}
 		}
@@ -494,34 +525,34 @@ return null();
 HX_DEFINE_DYNAMIC_FUNC1(CharOBJ_obj,unbreakChar,(void))
 
 ::openfl::_v2::display::Sprite CharOBJ_obj::getTextButton( ::String label){
-	HX_STACK_FRAME("CharOBJ","getTextButton",0xf0009028,"CharOBJ.getTextButton","CharOBJ.hx",225,0xfdecfebd)
+	HX_STACK_FRAME("CharOBJ","getTextButton",0xf0009028,"CharOBJ.getTextButton","CharOBJ.hx",246,0xfdecfebd)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(label,"label")
-	HX_STACK_LINE(226)
+	HX_STACK_LINE(247)
 	::openfl::_v2::text::TextField txt = ::openfl::_v2::text::TextField_obj::__new();		HX_STACK_VAR(txt,"txt");
-	HX_STACK_LINE(227)
+	HX_STACK_LINE(248)
 	::openfl::_v2::text::TextFormat _g = ::openfl::_v2::text::TextFormat_obj::__new(HX_CSTRING("assets/Nootype.otf"),(int)120,(int)14881812,null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(227)
+	HX_STACK_LINE(248)
 	txt->set_defaultTextFormat(_g);
-	HX_STACK_LINE(228)
+	HX_STACK_LINE(249)
 	txt->set_text(label);
-	HX_STACK_LINE(229)
+	HX_STACK_LINE(250)
 	txt->set_x((int)65);
-	HX_STACK_LINE(230)
+	HX_STACK_LINE(251)
 	txt->set_y((int)150);
-	HX_STACK_LINE(231)
+	HX_STACK_LINE(252)
 	txt->set_autoSize(::openfl::text::TextFieldAutoSize_obj::LEFT);
-	HX_STACK_LINE(232)
+	HX_STACK_LINE(253)
 	::openfl::_v2::display::Sprite btn = ::openfl::_v2::display::Sprite_obj::__new();		HX_STACK_VAR(btn,"btn");
-	HX_STACK_LINE(233)
+	HX_STACK_LINE(254)
 	btn->set_mouseChildren(false);
-	HX_STACK_LINE(234)
+	HX_STACK_LINE(255)
 	btn->addChild(txt);
-	HX_STACK_LINE(235)
+	HX_STACK_LINE(256)
 	btn->buttonMode = true;
-	HX_STACK_LINE(236)
+	HX_STACK_LINE(257)
 	btn->addEventListener(::openfl::_v2::events::MouseEvent_obj::CLICK,this->unbreakChar_dyn(),null(),null(),null());
-	HX_STACK_LINE(237)
+	HX_STACK_LINE(258)
 	return btn;
 }
 
@@ -530,10 +561,10 @@ HX_DEFINE_DYNAMIC_FUNC1(CharOBJ_obj,getTextButton,return )
 
 Void CharOBJ_obj::removeME( ::openfl::_v2::events::MouseEvent e){
 {
-		HX_STACK_FRAME("CharOBJ","removeME",0x28a59c09,"CharOBJ.removeME","CharOBJ.hx",243,0xfdecfebd)
+		HX_STACK_FRAME("CharOBJ","removeME",0x28a59c09,"CharOBJ.removeME","CharOBJ.hx",264,0xfdecfebd)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(e,"e")
-		HX_STACK_LINE(243)
+		HX_STACK_LINE(264)
 		this->get_parent()->removeChild(hx::ObjectPtr<OBJ_>(this));
 	}
 return null();
@@ -541,6 +572,78 @@ return null();
 
 
 HX_DEFINE_DYNAMIC_FUNC1(CharOBJ_obj,removeME,(void))
+
+Void CharOBJ_obj::nameinputfunction( ::openfl::_v2::events::MouseEvent e){
+{
+		HX_STACK_FRAME("CharOBJ","nameinputfunction",0x9619caea,"CharOBJ.nameinputfunction","CharOBJ.hx",270,0xfdecfebd)
+		HX_STACK_THIS(this)
+		HX_STACK_ARG(e,"e")
+		HX_STACK_LINE(272)
+		::NameInput _g = ::NameInput_obj::__new();		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(272)
+		this->nameinput = _g;
+		HX_STACK_LINE(273)
+		Float _g1 = this->get_x();		HX_STACK_VAR(_g1,"_g1");
+		HX_STACK_LINE(273)
+		Float _g2 = (_g1 + (int)125);		HX_STACK_VAR(_g2,"_g2");
+		HX_STACK_LINE(273)
+		this->nameinput->set_x(_g2);
+		HX_STACK_LINE(274)
+		Float _g3 = this->get_y();		HX_STACK_VAR(_g3,"_g3");
+		HX_STACK_LINE(274)
+		Float _g4 = (_g3 - (int)60);		HX_STACK_VAR(_g4,"_g4");
+		HX_STACK_LINE(274)
+		this->nameinput->set_y(_g4);
+		HX_STACK_LINE(275)
+		this->addChild(this->nameinput);
+		HX_STACK_LINE(277)
+		::openfl::_v2::display::Sprite _g5 = ::openfl::_v2::display::Sprite_obj::__new();		HX_STACK_VAR(_g5,"_g5");
+		HX_STACK_LINE(277)
+		this->nameinputClose = _g5;
+		HX_STACK_LINE(278)
+		::openfl::_v2::display::BitmapData _g6 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/close_btn.png"),null());		HX_STACK_VAR(_g6,"_g6");
+		HX_STACK_LINE(278)
+		::openfl::_v2::display::Bitmap _g7 = ::openfl::_v2::display::Bitmap_obj::__new(_g6,null(),null());		HX_STACK_VAR(_g7,"_g7");
+		HX_STACK_LINE(278)
+		this->closeBitmap2 = _g7;
+		HX_STACK_LINE(279)
+		this->nameinputClose->addChild(this->closeBitmap2);
+		HX_STACK_LINE(280)
+		this->nameinputClose->set_x((int)445);
+		HX_STACK_LINE(281)
+		this->nameinputClose->set_y((int)-20);
+		HX_STACK_LINE(282)
+		this->addChild(this->nameinputClose);
+		HX_STACK_LINE(283)
+		this->nameinputClose->addEventListener(::openfl::_v2::events::MouseEvent_obj::CLICK,this->getnamestring_dyn(),null(),null(),null());
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(CharOBJ_obj,nameinputfunction,(void))
+
+Void CharOBJ_obj::getnamestring( ::openfl::_v2::events::MouseEvent e){
+{
+		HX_STACK_FRAME("CharOBJ","getnamestring",0x49998ee5,"CharOBJ.getnamestring","CharOBJ.hx",289,0xfdecfebd)
+		HX_STACK_THIS(this)
+		HX_STACK_ARG(e,"e")
+		HX_STACK_LINE(291)
+		::String _g = this->nameinput->nameField->get_text();		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(291)
+		this->nameString = _g;
+		HX_STACK_LINE(292)
+		this->nameField->set_text(this->nameString);
+		HX_STACK_LINE(293)
+		this->removeChild(this->nameinputClose);
+		HX_STACK_LINE(294)
+		this->removeChild(this->nameinput);
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(CharOBJ_obj,getnamestring,(void))
 
 
 CharOBJ_obj::CharOBJ_obj()
@@ -551,6 +654,7 @@ void CharOBJ_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(CharOBJ);
 	HX_MARK_MEMBER_NAME(ram,"ram");
+	HX_MARK_MEMBER_NAME(nameBG,"nameBG");
 	HX_MARK_MEMBER_NAME(plus,"plus");
 	HX_MARK_MEMBER_NAME(minus,"minus");
 	HX_MARK_MEMBER_NAME(plusXcord,"plusXcord");
@@ -567,6 +671,9 @@ void CharOBJ_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(skarpaField,"skarpaField");
 	HX_MARK_MEMBER_NAME(kanslaField,"kanslaField");
 	HX_MARK_MEMBER_NAME(nameField,"nameField");
+	HX_MARK_MEMBER_NAME(nameString,"nameString");
+	HX_MARK_MEMBER_NAME(nameinput,"nameinput");
+	HX_MARK_MEMBER_NAME(nameinputClose,"nameinputClose");
 	HX_MARK_MEMBER_NAME(plusBTN,"plusBTN");
 	HX_MARK_MEMBER_NAME(minusBTN,"minusBTN");
 	HX_MARK_MEMBER_NAME(textFormat,"textFormat");
@@ -574,6 +681,7 @@ void CharOBJ_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(gubbIndex,"gubbIndex");
 	HX_MARK_MEMBER_NAME(closeBTN,"closeBTN");
 	HX_MARK_MEMBER_NAME(closeBitmap,"closeBitmap");
+	HX_MARK_MEMBER_NAME(closeBitmap2,"closeBitmap2");
 	::openfl::_v2::display::DisplayObjectContainer_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
@@ -581,6 +689,7 @@ void CharOBJ_obj::__Mark(HX_MARK_PARAMS)
 void CharOBJ_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(ram,"ram");
+	HX_VISIT_MEMBER_NAME(nameBG,"nameBG");
 	HX_VISIT_MEMBER_NAME(plus,"plus");
 	HX_VISIT_MEMBER_NAME(minus,"minus");
 	HX_VISIT_MEMBER_NAME(plusXcord,"plusXcord");
@@ -597,6 +706,9 @@ void CharOBJ_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(skarpaField,"skarpaField");
 	HX_VISIT_MEMBER_NAME(kanslaField,"kanslaField");
 	HX_VISIT_MEMBER_NAME(nameField,"nameField");
+	HX_VISIT_MEMBER_NAME(nameString,"nameString");
+	HX_VISIT_MEMBER_NAME(nameinput,"nameinput");
+	HX_VISIT_MEMBER_NAME(nameinputClose,"nameinputClose");
 	HX_VISIT_MEMBER_NAME(plusBTN,"plusBTN");
 	HX_VISIT_MEMBER_NAME(minusBTN,"minusBTN");
 	HX_VISIT_MEMBER_NAME(textFormat,"textFormat");
@@ -604,6 +716,7 @@ void CharOBJ_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(gubbIndex,"gubbIndex");
 	HX_VISIT_MEMBER_NAME(closeBTN,"closeBTN");
 	HX_VISIT_MEMBER_NAME(closeBitmap,"closeBitmap");
+	HX_VISIT_MEMBER_NAME(closeBitmap2,"closeBitmap2");
 	::openfl::_v2::display::DisplayObjectContainer_obj::__Visit(HX_VISIT_ARG);
 }
 
@@ -624,6 +737,7 @@ Dynamic CharOBJ_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"minus") ) { return minus; }
 		break;
 	case 6:
+		if (HX_FIELD_EQ(inName,"nameBG") ) { return nameBG; }
 		if (HX_FIELD_EQ(inName,"styrka") ) { return styrka; }
 		if (HX_FIELD_EQ(inName,"skarpa") ) { return skarpa; }
 		if (HX_FIELD_EQ(inName,"kansla") ) { return kansla; }
@@ -641,12 +755,14 @@ Dynamic CharOBJ_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"plusArray") ) { return plusArray; }
 		if (HX_FIELD_EQ(inName,"kylaField") ) { return kylaField; }
 		if (HX_FIELD_EQ(inName,"nameField") ) { return nameField; }
+		if (HX_FIELD_EQ(inName,"nameinput") ) { return nameinput; }
 		if (HX_FIELD_EQ(inName,"gubbIndex") ) { return gubbIndex; }
 		if (HX_FIELD_EQ(inName,"breakChar") ) { return breakChar_dyn(); }
 		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"minusXcord") ) { return minusXcord; }
 		if (HX_FIELD_EQ(inName,"minusArray") ) { return minusArray; }
+		if (HX_FIELD_EQ(inName,"nameString") ) { return nameString; }
 		if (HX_FIELD_EQ(inName,"textFormat") ) { return textFormat; }
 		if (HX_FIELD_EQ(inName,"textButton") ) { return textButton; }
 		break;
@@ -658,8 +774,18 @@ Dynamic CharOBJ_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"changeValue") ) { return changeValue_dyn(); }
 		if (HX_FIELD_EQ(inName,"unbreakChar") ) { return unbreakChar_dyn(); }
 		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"closeBitmap2") ) { return closeBitmap2; }
+		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"getTextButton") ) { return getTextButton_dyn(); }
+		if (HX_FIELD_EQ(inName,"getnamestring") ) { return getnamestring_dyn(); }
+		break;
+	case 14:
+		if (HX_FIELD_EQ(inName,"nameinputClose") ) { return nameinputClose; }
+		break;
+	case 17:
+		if (HX_FIELD_EQ(inName,"nameinputfunction") ) { return nameinputfunction_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -681,6 +807,7 @@ Dynamic CharOBJ_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 		if (HX_FIELD_EQ(inName,"minus") ) { minus=inValue.Cast< ::CharOBJOperator >(); return inValue; }
 		break;
 	case 6:
+		if (HX_FIELD_EQ(inName,"nameBG") ) { nameBG=inValue.Cast< ::openfl::_v2::display::Bitmap >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"styrka") ) { styrka=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"skarpa") ) { skarpa=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"kansla") ) { kansla=inValue.Cast< int >(); return inValue; }
@@ -697,11 +824,13 @@ Dynamic CharOBJ_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 		if (HX_FIELD_EQ(inName,"plusArray") ) { plusArray=inValue.Cast< Array< ::Dynamic > >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"kylaField") ) { kylaField=inValue.Cast< ::openfl::_v2::text::TextField >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"nameField") ) { nameField=inValue.Cast< ::openfl::_v2::text::TextField >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"nameinput") ) { nameinput=inValue.Cast< ::NameInput >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"gubbIndex") ) { gubbIndex=inValue.Cast< int >(); return inValue; }
 		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"minusXcord") ) { minusXcord=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"minusArray") ) { minusArray=inValue.Cast< Array< ::Dynamic > >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"nameString") ) { nameString=inValue.Cast< ::String >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"textFormat") ) { textFormat=inValue.Cast< ::openfl::_v2::text::TextFormat >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"textButton") ) { textButton=inValue.Cast< ::openfl::_v2::display::Sprite >(); return inValue; }
 		break;
@@ -710,6 +839,12 @@ Dynamic CharOBJ_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 		if (HX_FIELD_EQ(inName,"skarpaField") ) { skarpaField=inValue.Cast< ::openfl::_v2::text::TextField >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"kanslaField") ) { kanslaField=inValue.Cast< ::openfl::_v2::text::TextField >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"closeBitmap") ) { closeBitmap=inValue.Cast< ::openfl::_v2::display::Bitmap >(); return inValue; }
+		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"closeBitmap2") ) { closeBitmap2=inValue.Cast< ::openfl::_v2::display::Bitmap >(); return inValue; }
+		break;
+	case 14:
+		if (HX_FIELD_EQ(inName,"nameinputClose") ) { nameinputClose=inValue.Cast< ::openfl::_v2::display::Sprite >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
@@ -717,6 +852,7 @@ Dynamic CharOBJ_obj::__SetField(const ::String &inName,const Dynamic &inValue,bo
 void CharOBJ_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_CSTRING("ram"));
+	outFields->push(HX_CSTRING("nameBG"));
 	outFields->push(HX_CSTRING("plus"));
 	outFields->push(HX_CSTRING("minus"));
 	outFields->push(HX_CSTRING("plusXcord"));
@@ -733,6 +869,9 @@ void CharOBJ_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("skarpaField"));
 	outFields->push(HX_CSTRING("kanslaField"));
 	outFields->push(HX_CSTRING("nameField"));
+	outFields->push(HX_CSTRING("nameString"));
+	outFields->push(HX_CSTRING("nameinput"));
+	outFields->push(HX_CSTRING("nameinputClose"));
 	outFields->push(HX_CSTRING("plusBTN"));
 	outFields->push(HX_CSTRING("minusBTN"));
 	outFields->push(HX_CSTRING("textFormat"));
@@ -740,6 +879,7 @@ void CharOBJ_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_CSTRING("gubbIndex"));
 	outFields->push(HX_CSTRING("closeBTN"));
 	outFields->push(HX_CSTRING("closeBitmap"));
+	outFields->push(HX_CSTRING("closeBitmap2"));
 	super::__GetFields(outFields);
 };
 
@@ -749,6 +889,7 @@ static ::String sStaticFields[] = {
 #if HXCPP_SCRIPTABLE
 static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsObject /*::openfl::_v2::display::Bitmap*/ ,(int)offsetof(CharOBJ_obj,ram),HX_CSTRING("ram")},
+	{hx::fsObject /*::openfl::_v2::display::Bitmap*/ ,(int)offsetof(CharOBJ_obj,nameBG),HX_CSTRING("nameBG")},
 	{hx::fsObject /*::CharOBJOperator*/ ,(int)offsetof(CharOBJ_obj,plus),HX_CSTRING("plus")},
 	{hx::fsObject /*::CharOBJOperator*/ ,(int)offsetof(CharOBJ_obj,minus),HX_CSTRING("minus")},
 	{hx::fsInt,(int)offsetof(CharOBJ_obj,plusXcord),HX_CSTRING("plusXcord")},
@@ -765,6 +906,9 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsObject /*::openfl::_v2::text::TextField*/ ,(int)offsetof(CharOBJ_obj,skarpaField),HX_CSTRING("skarpaField")},
 	{hx::fsObject /*::openfl::_v2::text::TextField*/ ,(int)offsetof(CharOBJ_obj,kanslaField),HX_CSTRING("kanslaField")},
 	{hx::fsObject /*::openfl::_v2::text::TextField*/ ,(int)offsetof(CharOBJ_obj,nameField),HX_CSTRING("nameField")},
+	{hx::fsString,(int)offsetof(CharOBJ_obj,nameString),HX_CSTRING("nameString")},
+	{hx::fsObject /*::NameInput*/ ,(int)offsetof(CharOBJ_obj,nameinput),HX_CSTRING("nameinput")},
+	{hx::fsObject /*::openfl::_v2::display::Sprite*/ ,(int)offsetof(CharOBJ_obj,nameinputClose),HX_CSTRING("nameinputClose")},
 	{hx::fsObject /*::CharOBJOperator*/ ,(int)offsetof(CharOBJ_obj,plusBTN),HX_CSTRING("plusBTN")},
 	{hx::fsObject /*::CharOBJOperator*/ ,(int)offsetof(CharOBJ_obj,minusBTN),HX_CSTRING("minusBTN")},
 	{hx::fsObject /*::openfl::_v2::text::TextFormat*/ ,(int)offsetof(CharOBJ_obj,textFormat),HX_CSTRING("textFormat")},
@@ -772,12 +916,14 @@ static hx::StorageInfo sMemberStorageInfo[] = {
 	{hx::fsInt,(int)offsetof(CharOBJ_obj,gubbIndex),HX_CSTRING("gubbIndex")},
 	{hx::fsObject /*::openfl::_v2::display::Sprite*/ ,(int)offsetof(CharOBJ_obj,closeBTN),HX_CSTRING("closeBTN")},
 	{hx::fsObject /*::openfl::_v2::display::Bitmap*/ ,(int)offsetof(CharOBJ_obj,closeBitmap),HX_CSTRING("closeBitmap")},
+	{hx::fsObject /*::openfl::_v2::display::Bitmap*/ ,(int)offsetof(CharOBJ_obj,closeBitmap2),HX_CSTRING("closeBitmap2")},
 	{ hx::fsUnknown, 0, null()}
 };
 #endif
 
 static ::String sMemberFields[] = {
 	HX_CSTRING("ram"),
+	HX_CSTRING("nameBG"),
 	HX_CSTRING("plus"),
 	HX_CSTRING("minus"),
 	HX_CSTRING("plusXcord"),
@@ -794,6 +940,9 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("skarpaField"),
 	HX_CSTRING("kanslaField"),
 	HX_CSTRING("nameField"),
+	HX_CSTRING("nameString"),
+	HX_CSTRING("nameinput"),
+	HX_CSTRING("nameinputClose"),
 	HX_CSTRING("plusBTN"),
 	HX_CSTRING("minusBTN"),
 	HX_CSTRING("textFormat"),
@@ -801,11 +950,14 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("gubbIndex"),
 	HX_CSTRING("closeBTN"),
 	HX_CSTRING("closeBitmap"),
+	HX_CSTRING("closeBitmap2"),
 	HX_CSTRING("changeValue"),
 	HX_CSTRING("breakChar"),
 	HX_CSTRING("unbreakChar"),
 	HX_CSTRING("getTextButton"),
 	HX_CSTRING("removeME"),
+	HX_CSTRING("nameinputfunction"),
+	HX_CSTRING("getnamestring"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

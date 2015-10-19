@@ -8,6 +8,7 @@
 #include <openfl/_v2/display/Sprite.h>
 HX_DECLARE_CLASS0(CharOBJ)
 HX_DECLARE_CLASS0(CharOBJOperator)
+HX_DECLARE_CLASS0(NameInput)
 HX_DECLARE_CLASS3(openfl,_v2,display,Bitmap)
 HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObject)
 HX_DECLARE_CLASS3(openfl,_v2,display,DisplayObjectContainer)
@@ -45,6 +46,7 @@ class HXCPP_CLASS_ATTRIBUTES  CharOBJ_obj : public ::openfl::_v2::display::Sprit
 		::String __ToString() const { return HX_CSTRING("CharOBJ"); }
 
 		::openfl::_v2::display::Bitmap ram;
+		::openfl::_v2::display::Bitmap nameBG;
 		::CharOBJOperator plus;
 		::CharOBJOperator minus;
 		int plusXcord;
@@ -61,6 +63,9 @@ class HXCPP_CLASS_ATTRIBUTES  CharOBJ_obj : public ::openfl::_v2::display::Sprit
 		::openfl::_v2::text::TextField skarpaField;
 		::openfl::_v2::text::TextField kanslaField;
 		::openfl::_v2::text::TextField nameField;
+		::String nameString;
+		::NameInput nameinput;
+		::openfl::_v2::display::Sprite nameinputClose;
 		::CharOBJOperator plusBTN;
 		::CharOBJOperator minusBTN;
 		::openfl::_v2::text::TextFormat textFormat;
@@ -68,6 +73,7 @@ class HXCPP_CLASS_ATTRIBUTES  CharOBJ_obj : public ::openfl::_v2::display::Sprit
 		int gubbIndex;
 		::openfl::_v2::display::Sprite closeBTN;
 		::openfl::_v2::display::Bitmap closeBitmap;
+		::openfl::_v2::display::Bitmap closeBitmap2;
 		virtual Void changeValue( ::openfl::_v2::events::MouseEvent e);
 		Dynamic changeValue_dyn();
 
@@ -82,6 +88,12 @@ class HXCPP_CLASS_ATTRIBUTES  CharOBJ_obj : public ::openfl::_v2::display::Sprit
 
 		virtual Void removeME( ::openfl::_v2::events::MouseEvent e);
 		Dynamic removeME_dyn();
+
+		virtual Void nameinputfunction( ::openfl::_v2::events::MouseEvent e);
+		Dynamic nameinputfunction_dyn();
+
+		virtual Void getnamestring( ::openfl::_v2::events::MouseEvent e);
+		Dynamic getnamestring_dyn();
 
 };
 

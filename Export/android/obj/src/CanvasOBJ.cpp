@@ -120,7 +120,7 @@ Void CanvasOBJ_obj::gubbPosition( ){
 		HX_STACK_FRAME("CanvasOBJ","gubbPosition",0xdbcb5226,"CanvasOBJ.gubbPosition","CanvasOBJ.hx",49,0x0698aa3f)
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(50)
-		this->gubbPos = (int)0;
+		this->gubbPos = (int)35;
 		HX_STACK_LINE(51)
 		this->n = (int)0;
 		HX_STACK_LINE(53)
@@ -145,7 +145,7 @@ Void CanvasOBJ_obj::gubbPosition( ){
 				HX_STACK_LINE(56)
 				this->tempchar->set_y(this->gubbPos);
 				HX_STACK_LINE(57)
-				hx::AddEq(this->gubbPos,(int)480);
+				hx::AddEq(this->gubbPos,(int)520);
 				HX_STACK_LINE(58)
 				this->defBTN->set_y((this->gubbPos + (int)20));
 				HX_STACK_LINE(59)

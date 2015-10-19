@@ -156,6 +156,7 @@ obj/android-debug-v7/1b394dab_Type.obj
 obj/android-debug-v7/1b394dab_StringTools.obj
 obj/android-debug-v7/1b394dab_StringBuf.obj
 obj/android-debug-v7/1b394dab_Reflect.obj
+obj/android-debug-v7/1b394dab_NameInput.obj
 obj/android-debug-v7/1b394dab_IMap.obj
 obj/android-debug-v7/1b394dab_List.obj
 obj/android-debug-v7/1b394dab_Lambda.obj

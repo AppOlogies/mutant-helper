@@ -15,14 +15,14 @@
 
 Void __ASSET__assets_nootype_otf_obj::__construct()
 {
-HX_STACK_FRAME("__ASSET__assets_nootype_otf","new",0xf0382830,"__ASSET__assets_nootype_otf.new","DefaultAssetLibrary.hx",773,0x0fc48912)
+HX_STACK_FRAME("__ASSET__assets_nootype_otf","new",0xf0382830,"__ASSET__assets_nootype_otf.new","DefaultAssetLibrary.hx",791,0x0fc48912)
 HX_STACK_THIS(this)
 {
-	HX_STACK_LINE(773)
+	HX_STACK_LINE(791)
 	super::__construct(null(),null(),null());
-	HX_STACK_LINE(773)
+	HX_STACK_LINE(791)
 	this->__fontPath = HX_CSTRING("assets/Nootype.otf");
-	HX_STACK_LINE(773)
+	HX_STACK_LINE(791)
 	this->fontName = HX_CSTRING("Radikal");
 }
 ;

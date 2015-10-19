@@ -50,6 +50,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/close_btn.png", AssetType.IMAGE);
 		className.set ("assets/minus.png", __ASSET__assets_minus_png);
 		type.set ("assets/minus.png", AssetType.IMAGE);
+		className.set ("assets/namebg.png", __ASSET__assets_namebg_png);
+		type.set ("assets/namebg.png", AssetType.IMAGE);
+		className.set ("assets/nameClass_BG.png", __ASSET__assets_nameclass_bg_png);
+		type.set ("assets/nameClass_BG.png", AssetType.IMAGE);
 		className.set ("assets/Nootype.otf", __ASSET__assets_nootype_otf);
 		type.set ("assets/Nootype.otf", AssetType.FONT);
 		className.set ("assets/plus.png", __ASSET__assets_plus_png);
@@ -74,6 +78,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/minus.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/namebg.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/nameClass_BG.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -113,6 +125,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__assets_nootype_otf);
 		
 		
@@ -133,6 +147,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/minus.png", __ASSET__assets_minus_png);
 		type.set ("assets/minus.png", AssetType.IMAGE);
+		
+		className.set ("assets/namebg.png", __ASSET__assets_namebg_png);
+		type.set ("assets/namebg.png", AssetType.IMAGE);
+		
+		className.set ("assets/nameClass_BG.png", __ASSET__assets_nameclass_bg_png);
+		type.set ("assets/nameClass_BG.png", AssetType.IMAGE);
 		
 		className.set ("assets/Nootype.otf", __ASSET__assets_nootype_otf);
 		type.set ("assets/Nootype.otf", AssetType.FONT);
@@ -722,6 +742,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_bakgrund_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_close_btn_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_minus_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_namebg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_nameclass_bg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_nootype_otf extends flash.text.Font { }
 @:keep @:bind #if display private #end class __ASSET__assets_plus_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_plusknapp_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -732,6 +754,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif html5
 
 #if openfl
+
+
 
 
 
@@ -756,6 +780,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:bitmap("Assets/bakgrund.png") class __ASSET__assets_bakgrund_png extends lime.graphics.Image {}
 @:bitmap("Assets/close_btn.png") class __ASSET__assets_close_btn_png extends lime.graphics.Image {}
 @:bitmap("Assets/minus.png") class __ASSET__assets_minus_png extends lime.graphics.Image {}
+@:bitmap("Assets/namebg.png") class __ASSET__assets_namebg_png extends lime.graphics.Image {}
+@:bitmap("Assets/nameClass_BG.png") class __ASSET__assets_nameclass_bg_png extends lime.graphics.Image {}
 @:font("Assets/Nootype.otf") class __ASSET__assets_nootype_otf extends lime.graphics.Font {}
 @:bitmap("Assets/plus.png") class __ASSET__assets_plus_png extends lime.graphics.Image {}
 @:bitmap("Assets/plusknapp.png") class __ASSET__assets_plusknapp_png extends lime.graphics.Image {}

@@ -139,7 +139,7 @@ Void Main_obj::dragSTART( ::openfl::_v2::events::MouseEvent e){
 		HX_STACK_LINE(57)
 		if (((this->canLength > (int)200))){
 			HX_STACK_LINE(57)
-			this->offset = ((int)480 * this->scaledH);
+			this->offset = ((int)520 * this->scaledH);
 		}
 		else{
 			HX_STACK_LINE(58)

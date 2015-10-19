@@ -52,6 +52,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/close_btn.png", AssetType.IMAGE);
 		path.set ("assets/minus.png", "assets/minus.png");
 		type.set ("assets/minus.png", AssetType.IMAGE);
+		path.set ("assets/namebg.png", "assets/namebg.png");
+		type.set ("assets/namebg.png", AssetType.IMAGE);
+		path.set ("assets/nameClass_BG.png", "assets/nameClass_BG.png");
+		type.set ("assets/nameClass_BG.png", AssetType.IMAGE);
 		path.set ("assets/Nootype.otf", "assets/Nootype.otf");
 		type.set ("assets/Nootype.otf", AssetType.FONT);
 		path.set ("assets/plus.png", "assets/plus.png");
@@ -74,6 +78,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/minus.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/namebg.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/nameClass_BG.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/Nootype.otf";
@@ -99,6 +109,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		Font.registerFont (__ASSET__assets_nootype_otf);
 		
 		
@@ -109,6 +121,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -744,7 +758,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 #elseif html5
+
+
 
 
 

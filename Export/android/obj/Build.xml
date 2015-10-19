@@ -1114,6 +1114,24 @@
   <file name="src/Reflect.cpp">
    <depend name="include/Reflect.h"/>
   </file>
+  <file name="src/NameInput.cpp">
+   <depend name="include/NameInput.h"/>
+   <depend name="include/openfl/_v2/Assets.h"/>
+   <depend name="include/openfl/_v2/display/Bitmap.h"/>
+   <depend name="include/openfl/_v2/display/BitmapData.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObject.h"/>
+   <depend name="include/openfl/_v2/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/_v2/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/_v2/display/InteractiveObject.h"/>
+   <depend name="include/openfl/_v2/display/Sprite.h"/>
+   <depend name="include/openfl/_v2/events/EventDispatcher.h"/>
+   <depend name="include/openfl/_v2/events/IEventDispatcher.h"/>
+   <depend name="include/openfl/_v2/text/TextField.h"/>
+   <depend name="include/openfl/_v2/text/TextFormat.h"/>
+   <depend name="include/openfl/display/PixelSnapping.h"/>
+   <depend name="include/openfl/text/TextFieldAutoSize.h"/>
+   <depend name="include/openfl/text/TextFieldType.h"/>
+  </file>
   <file name="src/IMap.cpp">
    <depend name="include/IMap.h"/>
   </file>
@@ -1228,6 +1246,7 @@
   <file name="src/CharOBJ.cpp">
    <depend name="include/CharOBJ.h"/>
    <depend name="include/CharOBJOperator.h"/>
+   <depend name="include/NameInput.h"/>
    <depend name="include/haxe/Log.h"/>
    <depend name="include/openfl/_v2/Assets.h"/>
    <depend name="include/openfl/_v2/display/Bitmap.h"/>

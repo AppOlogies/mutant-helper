@@ -22,6 +22,10 @@ class AssetData {
 			type.set ("assets/close_btn.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/minus.png", "assets/minus.png");
 			type.set ("assets/minus.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/namebg.png", "assets/namebg.png");
+			type.set ("assets/namebg.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/nameClass_BG.png", "assets/nameClass_BG.png");
+			type.set ("assets/nameClass_BG.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/Nootype.otf", "assets/Nootype.otf");
 			type.set ("assets/Nootype.otf", Reflect.field (AssetType, "font".toUpperCase ()));
 			path.set ("assets/plus.png", "assets/plus.png");

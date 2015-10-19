@@ -1,0 +1,228 @@
+#include <hxcpp.h>
+
+#ifndef INCLUDED_NameInput
+#include <NameInput.h>
+#endif
+#ifndef INCLUDED_openfl__v2_Assets
+#include <openfl/_v2/Assets.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_Bitmap
+#include <openfl/_v2/display/Bitmap.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_BitmapData
+#include <openfl/_v2/display/BitmapData.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_DisplayObject
+#include <openfl/_v2/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_DisplayObjectContainer
+#include <openfl/_v2/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_IBitmapDrawable
+#include <openfl/_v2/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_InteractiveObject
+#include <openfl/_v2/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl__v2_display_Sprite
+#include <openfl/_v2/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl__v2_events_EventDispatcher
+#include <openfl/_v2/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__v2_events_IEventDispatcher
+#include <openfl/_v2/events/IEventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl__v2_text_TextField
+#include <openfl/_v2/text/TextField.h>
+#endif
+#ifndef INCLUDED_openfl__v2_text_TextFormat
+#include <openfl/_v2/text/TextFormat.h>
+#endif
+#ifndef INCLUDED_openfl_display_PixelSnapping
+#include <openfl/display/PixelSnapping.h>
+#endif
+#ifndef INCLUDED_openfl_text_TextFieldAutoSize
+#include <openfl/text/TextFieldAutoSize.h>
+#endif
+#ifndef INCLUDED_openfl_text_TextFieldType
+#include <openfl/text/TextFieldType.h>
+#endif
+
+Void NameInput_obj::__construct()
+{
+HX_STACK_FRAME("NameInput","new",0x8323ce11,"NameInput.new","NameInput.hx",12,0x95d35e7f)
+HX_STACK_THIS(this)
+{
+	HX_STACK_LINE(16)
+	this->nameField = ::openfl::_v2::text::TextField_obj::__new();
+	HX_STACK_LINE(22)
+	super::__construct();
+	HX_STACK_LINE(25)
+	::openfl::_v2::text::TextFormat _g = ::openfl::_v2::text::TextFormat_obj::__new(null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(25)
+	this->textFormat = _g;
+	HX_STACK_LINE(26)
+	this->textFormat->font = HX_CSTRING("assets/Nootype.otf");
+	HX_STACK_LINE(27)
+	this->textFormat->size = (int)60;
+	HX_STACK_LINE(28)
+	this->textFormat->color = (int)0;
+	HX_STACK_LINE(31)
+	::openfl::_v2::display::BitmapData _g1 = ::openfl::_v2::Assets_obj::getBitmapData(HX_CSTRING("assets/nameClass_BG.png"),null());		HX_STACK_VAR(_g1,"_g1");
+	HX_STACK_LINE(31)
+	::openfl::_v2::display::Bitmap _g2 = ::openfl::_v2::display::Bitmap_obj::__new(_g1,null(),null());		HX_STACK_VAR(_g2,"_g2");
+	HX_STACK_LINE(31)
+	this->nameinputBG = _g2;
+	HX_STACK_LINE(32)
+	this->addChild(this->nameinputBG);
+	HX_STACK_LINE(34)
+	this->nameField->set_defaultTextFormat(this->textFormat);
+	HX_STACK_LINE(35)
+	this->nameField->set_autoSize(::openfl::text::TextFieldAutoSize_obj::LEFT);
+	HX_STACK_LINE(36)
+	this->nameField->set_text(HX_CSTRING("Namn"));
+	HX_STACK_LINE(37)
+	this->nameField->set_width((int)350);
+	HX_STACK_LINE(38)
+	this->nameField->set_height((int)70);
+	HX_STACK_LINE(39)
+	this->nameField->set_x((int)100);
+	HX_STACK_LINE(40)
+	this->nameField->set_y((int)65);
+	HX_STACK_LINE(41)
+	this->nameField->set_selectable(true);
+	HX_STACK_LINE(42)
+	this->nameField->set_type(::openfl::text::TextFieldType_obj::INPUT);
+	HX_STACK_LINE(43)
+	this->nameField->set_maxChars((int)10);
+	HX_STACK_LINE(44)
+	this->addChild(this->nameField);
+}
+;
+	return null();
+}
+
+//NameInput_obj::~NameInput_obj() { }
+
+Dynamic NameInput_obj::__CreateEmpty() { return  new NameInput_obj; }
+hx::ObjectPtr< NameInput_obj > NameInput_obj::__new()
+{  hx::ObjectPtr< NameInput_obj > result = new NameInput_obj();
+	result->__construct();
+	return result;}
+
+Dynamic NameInput_obj::__Create(hx::DynamicArray inArgs)
+{  hx::ObjectPtr< NameInput_obj > result = new NameInput_obj();
+	result->__construct();
+	return result;}
+
+
+NameInput_obj::NameInput_obj()
+{
+}
+
+void NameInput_obj::__Mark(HX_MARK_PARAMS)
+{
+	HX_MARK_BEGIN_CLASS(NameInput);
+	HX_MARK_MEMBER_NAME(nameinputBG,"nameinputBG");
+	HX_MARK_MEMBER_NAME(nameField,"nameField");
+	HX_MARK_MEMBER_NAME(textFormat,"textFormat");
+	::openfl::_v2::display::DisplayObjectContainer_obj::__Mark(HX_MARK_ARG);
+	HX_MARK_END_CLASS();
+}
+
+void NameInput_obj::__Visit(HX_VISIT_PARAMS)
+{
+	HX_VISIT_MEMBER_NAME(nameinputBG,"nameinputBG");
+	HX_VISIT_MEMBER_NAME(nameField,"nameField");
+	HX_VISIT_MEMBER_NAME(textFormat,"textFormat");
+	::openfl::_v2::display::DisplayObjectContainer_obj::__Visit(HX_VISIT_ARG);
+}
+
+Dynamic NameInput_obj::__Field(const ::String &inName,bool inCallProp)
+{
+	switch(inName.length) {
+	case 9:
+		if (HX_FIELD_EQ(inName,"nameField") ) { return nameField; }
+		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"textFormat") ) { return textFormat; }
+		break;
+	case 11:
+		if (HX_FIELD_EQ(inName,"nameinputBG") ) { return nameinputBG; }
+	}
+	return super::__Field(inName,inCallProp);
+}
+
+Dynamic NameInput_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool inCallProp)
+{
+	switch(inName.length) {
+	case 9:
+		if (HX_FIELD_EQ(inName,"nameField") ) { nameField=inValue.Cast< ::openfl::_v2::text::TextField >(); return inValue; }
+		break;
+	case 10:
+		if (HX_FIELD_EQ(inName,"textFormat") ) { textFormat=inValue.Cast< ::openfl::_v2::text::TextFormat >(); return inValue; }
+		break;
+	case 11:
+		if (HX_FIELD_EQ(inName,"nameinputBG") ) { nameinputBG=inValue.Cast< ::openfl::_v2::display::Bitmap >(); return inValue; }
+	}
+	return super::__SetField(inName,inValue,inCallProp);
+}
+
+void NameInput_obj::__GetFields(Array< ::String> &outFields)
+{
+	outFields->push(HX_CSTRING("nameinputBG"));
+	outFields->push(HX_CSTRING("nameField"));
+	outFields->push(HX_CSTRING("textFormat"));
+	super::__GetFields(outFields);
+};
+
+static ::String sStaticFields[] = {
+	String(null()) };
+
+#if HXCPP_SCRIPTABLE
+static hx::StorageInfo sMemberStorageInfo[] = {
+	{hx::fsObject /*::openfl::_v2::display::Bitmap*/ ,(int)offsetof(NameInput_obj,nameinputBG),HX_CSTRING("nameinputBG")},
+	{hx::fsObject /*::openfl::_v2::text::TextField*/ ,(int)offsetof(NameInput_obj,nameField),HX_CSTRING("nameField")},
+	{hx::fsObject /*::openfl::_v2::text::TextFormat*/ ,(int)offsetof(NameInput_obj,textFormat),HX_CSTRING("textFormat")},
+	{ hx::fsUnknown, 0, null()}
+};
+#endif
+
+static ::String sMemberFields[] = {
+	HX_CSTRING("nameinputBG"),
+	HX_CSTRING("nameField"),
+	HX_CSTRING("textFormat"),
+	String(null()) };
+
+static void sMarkStatics(HX_MARK_PARAMS) {
+	HX_MARK_MEMBER_NAME(NameInput_obj::__mClass,"__mClass");
+};
+
+#ifdef HXCPP_VISIT_ALLOCS
+static void sVisitStatics(HX_VISIT_PARAMS) {
+	HX_VISIT_MEMBER_NAME(NameInput_obj::__mClass,"__mClass");
+};
+
+#endif
+
+Class NameInput_obj::__mClass;
+
+void NameInput_obj::__register()
+{
+	hx::Static(__mClass) = hx::RegisterClass(HX_CSTRING("NameInput"), hx::TCanCast< NameInput_obj> ,sStaticFields,sMemberFields,
+	&__CreateEmpty, &__Create,
+	&super::__SGetClass(), 0, sMarkStatics
+#ifdef HXCPP_VISIT_ALLOCS
+    , sVisitStatics
+#endif
+#ifdef HXCPP_SCRIPTABLE
+    , sMemberStorageInfo
+#endif
+);
+}
+
+void NameInput_obj::__boot()
+{
+}
+
