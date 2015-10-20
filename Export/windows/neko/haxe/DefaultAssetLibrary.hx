@@ -50,6 +50,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/bakgrund.png", AssetType.IMAGE);
 		path.set ("assets/close_btn.png", "assets/close_btn.png");
 		type.set ("assets/close_btn.png", AssetType.IMAGE);
+		path.set ("assets/forvirring.png", "assets/forvirring.png");
+		type.set ("assets/forvirring.png", AssetType.IMAGE);
 		path.set ("assets/minus.png", "assets/minus.png");
 		type.set ("assets/minus.png", AssetType.IMAGE);
 		path.set ("assets/namebg.png", "assets/namebg.png");
@@ -64,8 +66,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/plusknapp.png", AssetType.IMAGE);
 		path.set ("assets/ram.png", "assets/ram.png");
 		type.set ("assets/ram.png", AssetType.IMAGE);
+		path.set ("assets/skada.png", "assets/skada.png");
+		type.set ("assets/skada.png", AssetType.IMAGE);
 		path.set ("assets/slumpknapp.png", "assets/slumpknapp.png");
 		type.set ("assets/slumpknapp.png", AssetType.IMAGE);
+		path.set ("assets/stress.png", "assets/stress.png");
+		type.set ("assets/stress.png", AssetType.IMAGE);
+		path.set ("assets/tvivel.png", "assets/tvivel.png");
+		type.set ("assets/tvivel.png", AssetType.IMAGE);
 		
 		
 		#elseif html5
@@ -75,6 +83,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/close_btn.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/forvirring.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/minus.png";
@@ -98,12 +109,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/ram.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+		id = "assets/skada.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
 		id = "assets/slumpknapp.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/stress.png";
+		path.set (id, id);
+		type.set (id, AssetType.IMAGE);
+		id = "assets/tvivel.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		
 		
 		#else
+		
 		
 		
 		
@@ -118,9 +139,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -760,6 +788,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
 #elseif html5
 
 
@@ -767,7 +799,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 @:keep #if display private #end class __ASSET__assets_nootype_otf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "Radikal"; } #end }
+
+
+
 
 
 

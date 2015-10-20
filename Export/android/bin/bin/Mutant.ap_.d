@@ -17,10 +17,16 @@ C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\manifest \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\bakgrund.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\close_btn.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\forvirring.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\minus.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\namebg.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\nameClass_BG.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\Nootype.otf \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\plus.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\plusknapp.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\ram.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\skada.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\slumpknapp.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\stress.png \
+C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\assets\assets\tvivel.png \
 C:\Users\Lemur\Documents\GitHub\mutant-helper\Export\android\bin\bin\AndroidManifest.xml \

@@ -9,9 +9,6 @@
 #ifndef INCLUDED_DefBTN
 #include <DefBTN.h>
 #endif
-#ifndef INCLUDED_haxe_Log
-#include <haxe/Log.h>
-#endif
 #ifndef INCLUDED_openfl__v2_display_DisplayObject
 #include <openfl/_v2/display/DisplayObject.h>
 #endif
@@ -95,7 +92,7 @@ Void CanvasOBJ_obj::nyGubbe( ::openfl::_v2::events::MouseEvent e){
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(e,"e")
 		HX_STACK_LINE(39)
-		::CharOBJ _g = ::CharOBJ_obj::__new(this->gubbIndex);		HX_STACK_VAR(_g,"_g");
+		::CharOBJ _g = ::CharOBJ_obj::__new(this->gubbIndex,false);		HX_STACK_VAR(_g,"_g");
 		HX_STACK_LINE(39)
 		this->_char = _g;
 		HX_STACK_LINE(40)
@@ -117,49 +114,49 @@ HX_DEFINE_DYNAMIC_FUNC1(CanvasOBJ_obj,nyGubbe,(void))
 
 Void CanvasOBJ_obj::gubbPosition( ){
 {
-		HX_STACK_FRAME("CanvasOBJ","gubbPosition",0xdbcb5226,"CanvasOBJ.gubbPosition","CanvasOBJ.hx",49,0x0698aa3f)
+		HX_STACK_FRAME("CanvasOBJ","gubbPosition",0xdbcb5226,"CanvasOBJ.gubbPosition","CanvasOBJ.hx",51,0x0698aa3f)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(50)
+		HX_STACK_LINE(52)
 		this->gubbPos = (int)35;
-		HX_STACK_LINE(51)
-		this->n = (int)0;
 		HX_STACK_LINE(53)
+		this->n = (int)0;
+		HX_STACK_LINE(55)
 		{
-			HX_STACK_LINE(53)
+			HX_STACK_LINE(55)
 			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(53)
+			HX_STACK_LINE(55)
 			Array< ::Dynamic > _g1 = this->gubbArray;		HX_STACK_VAR(_g1,"_g1");
-			HX_STACK_LINE(53)
+			HX_STACK_LINE(55)
 			while((true)){
-				HX_STACK_LINE(53)
+				HX_STACK_LINE(55)
 				if ((!(((_g < _g1->length))))){
-					HX_STACK_LINE(53)
+					HX_STACK_LINE(55)
 					break;
 				}
-				HX_STACK_LINE(53)
-				::CharOBJ i = _g1->__get(_g).StaticCast< ::CharOBJ >();		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(53)
-				++(_g);
 				HX_STACK_LINE(55)
-				this->tempchar = this->gubbArray->__get(this->n).StaticCast< ::CharOBJ >();
-				HX_STACK_LINE(56)
-				this->tempchar->set_y(this->gubbPos);
+				::CharOBJ i = _g1->__get(_g).StaticCast< ::CharOBJ >();		HX_STACK_VAR(i,"i");
+				HX_STACK_LINE(55)
+				++(_g);
 				HX_STACK_LINE(57)
-				hx::AddEq(this->gubbPos,(int)520);
+				this->tempchar = this->gubbArray->__get(this->n).StaticCast< ::CharOBJ >();
 				HX_STACK_LINE(58)
-				this->defBTN->set_y((this->gubbPos + (int)20));
+				this->tempchar->set_y(this->gubbPos);
 				HX_STACK_LINE(59)
-				this->tempchar->gubbIndex = this->n;
+				hx::AddEq(this->gubbPos,(int)520);
 				HX_STACK_LINE(60)
+				this->defBTN->set_y((this->gubbPos + (int)20));
+				HX_STACK_LINE(61)
+				this->tempchar->gubbIndex = this->n;
+				HX_STACK_LINE(62)
 				(this->n)++;
 			}
 		}
-		HX_STACK_LINE(63)
+		HX_STACK_LINE(65)
 		if (((this->gubbArray->length == (int)0))){
-			HX_STACK_LINE(65)
+			HX_STACK_LINE(67)
 			this->defBTN->set_y((int)0);
 		}
-		HX_STACK_LINE(68)
+		HX_STACK_LINE(70)
 		this->canvasLength = this->gubbPos;
 	}
 return null();
@@ -170,14 +167,14 @@ HX_DEFINE_DYNAMIC_FUNC0(CanvasOBJ_obj,gubbPosition,(void))
 
 Void CanvasOBJ_obj::removeGubbe( ::openfl::_v2::events::Event e){
 {
-		HX_STACK_FRAME("CanvasOBJ","removeGubbe",0x492c1944,"CanvasOBJ.removeGubbe","CanvasOBJ.hx",73,0x0698aa3f)
+		HX_STACK_FRAME("CanvasOBJ","removeGubbe",0x492c1944,"CanvasOBJ.removeGubbe","CanvasOBJ.hx",75,0x0698aa3f)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(e,"e")
-		HX_STACK_LINE(74)
+		HX_STACK_LINE(76)
 		Dynamic _g = e->get_target();		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(74)
+		HX_STACK_LINE(76)
 		this->gubbArray->remove(_g);
-		HX_STACK_LINE(75)
+		HX_STACK_LINE(77)
 		this->gubbPosition();
 	}
 return null();
@@ -188,11 +185,23 @@ HX_DEFINE_DYNAMIC_FUNC1(CanvasOBJ_obj,removeGubbe,(void))
 
 Void CanvasOBJ_obj::random( ::openfl::_v2::events::MouseEvent e){
 {
-		HX_STACK_FRAME("CanvasOBJ","random",0xa1d034b2,"CanvasOBJ.random","CanvasOBJ.hx",80,0x0698aa3f)
+		HX_STACK_FRAME("CanvasOBJ","random",0xa1d034b2,"CanvasOBJ.random","CanvasOBJ.hx",82,0x0698aa3f)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(e,"e")
-		HX_STACK_LINE(80)
-		::haxe::Log_obj::trace(HX_CSTRING("Random pressed"),hx::SourceInfo(HX_CSTRING("CanvasOBJ.hx"),80,HX_CSTRING("CanvasOBJ"),HX_CSTRING("random")));
+		HX_STACK_LINE(83)
+		::CharOBJ _g = ::CharOBJ_obj::__new(this->gubbIndex,true);		HX_STACK_VAR(_g,"_g");
+		HX_STACK_LINE(83)
+		this->_char = _g;
+		HX_STACK_LINE(84)
+		this->gubbArray->push(this->_char);
+		HX_STACK_LINE(85)
+		this->addChild(this->_char);
+		HX_STACK_LINE(86)
+		(this->gubbIndex)++;
+		HX_STACK_LINE(88)
+		this->gubbPosition();
+		HX_STACK_LINE(90)
+		this->_char->addEventListener(::openfl::_v2::events::Event_obj::REMOVED,this->removeGubbe_dyn(),null(),null(),null());
 	}
 return null();
 }

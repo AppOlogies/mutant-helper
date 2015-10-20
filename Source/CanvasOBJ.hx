@@ -36,7 +36,7 @@ class CanvasOBJ extends Sprite
 	
 	private function nyGubbe(e:MouseEvent)
 	{
-		char = new CharOBJ(gubbIndex);
+		char = new CharOBJ(gubbIndex, false);
 		gubbArray.push(char);
 		addChild(char);
 		gubbIndex++;
@@ -45,6 +45,8 @@ class CanvasOBJ extends Sprite
 		
 		char.addEventListener(Event.REMOVED, removeGubbe);
 	}
+	
+	
 	private function gubbPosition()
 	{
 		gubbPos =35; 
@@ -75,9 +77,17 @@ class CanvasOBJ extends Sprite
 		gubbPosition();
 	}
 	
+	
 	private function random(e:MouseEvent)
 	{
-		trace("Random pressed");
+		char = new CharOBJ(gubbIndex, true);
+		gubbArray.push(char);
+		addChild(char);
+		gubbIndex++;
+		
+		gubbPosition();
+		
+		char.addEventListener(Event.REMOVED, removeGubbe);
 	}
 	
 }

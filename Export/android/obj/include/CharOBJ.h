@@ -28,12 +28,12 @@ class HXCPP_CLASS_ATTRIBUTES  CharOBJ_obj : public ::openfl::_v2::display::Sprit
 		typedef ::openfl::_v2::display::Sprite_obj super;
 		typedef CharOBJ_obj OBJ_;
 		CharOBJ_obj();
-		Void __construct(int index);
+		Void __construct(int index,bool rand);
 
 	public:
 		inline void *operator new( size_t inSize, bool inContainer=true)
 			{ return hx::Object::operator new(inSize,inContainer); }
-		static hx::ObjectPtr< CharOBJ_obj > __new(int index);
+		static hx::ObjectPtr< CharOBJ_obj > __new(int index,bool rand);
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~CharOBJ_obj();
@@ -74,6 +74,17 @@ class HXCPP_CLASS_ATTRIBUTES  CharOBJ_obj : public ::openfl::_v2::display::Sprit
 		::openfl::_v2::display::Sprite closeBTN;
 		::openfl::_v2::display::Bitmap closeBitmap;
 		::openfl::_v2::display::Bitmap closeBitmap2;
+		::openfl::_v2::display::Sprite skadaBTN;
+		::openfl::_v2::display::Bitmap skadaBitmap;
+		::openfl::_v2::display::Sprite stressBTN;
+		::openfl::_v2::display::Bitmap stressBitmap;
+		::openfl::_v2::display::Sprite forvirringBTN;
+		::openfl::_v2::display::Bitmap forvirringBitmap;
+		::openfl::_v2::display::Sprite tvivelBTN;
+		::openfl::_v2::display::Bitmap tvivelBitmap;
+		virtual Void skadeknapp( ::openfl::_v2::events::MouseEvent e);
+		Dynamic skadeknapp_dyn();
+
 		virtual Void changeValue( ::openfl::_v2::events::MouseEvent e);
 		Dynamic changeValue_dyn();
 

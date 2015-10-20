@@ -52,9 +52,43 @@ class CharOBJ extends Sprite
 	var closeBitmap:Bitmap;
 	var closeBitmap2:Bitmap;
 	
-	public function new(index) 
+	var skadaBTN:Sprite;
+	var skadaBitmap:Bitmap;
+	var stressBTN:Sprite;
+	var stressBitmap:Bitmap;
+	var forvirringBTN:Sprite;
+	var forvirringBitmap:Bitmap;
+	var tvivelBTN:Sprite;
+	var tvivelBitmap:Bitmap;
+
+	
+	
+	
+	public function new(index, rand:Bool) 
 	{
 		super();
+		
+		if (rand)
+		{
+			styrka = Std.random(6);
+			kyla = Std.random(6);
+			skarpa = Std.random(6);
+			kansla = Std.random(6);
+			
+			if (styrka == 0)
+			{styrka = 1; }
+			
+			if (kyla == 0)
+			{kyla = 1; }
+			
+			if (skarpa == 0)
+			{skarpa = 1; }
+			
+			if (kansla == 0)
+			{kansla = 1; }
+		}
+		
+		
 		textFormat = new TextFormat();
 		textFormat.font = "assets/Nootype.otf";
 		textFormat.size = 60;
@@ -109,7 +143,7 @@ class CharOBJ extends Sprite
 		nameBG = new Bitmap(Assets.getBitmapData("assets/namebg.png"));
 		nameBG.x = 330 - nameBG.width/2;
 		nameBG.y = -30;
-		//nameBG.addEventListener(MouseEvent.CLICK, nameinputfunction);
+		nameBG.addEventListener(MouseEvent.DOUBLE_CLICK, nameinputfunction);
 		addChild(nameBG);
 		
 		
@@ -122,9 +156,10 @@ class CharOBJ extends Sprite
 		nameField.x = 210;
 		nameField.y = -17;
 		nameField.selectable = false;
-		nameField.type = TextFieldType.INPUT;
+		nameField.doubleClickEnabled = true;
+		nameField.type = TextFieldType.DYNAMIC;
 		nameField.maxChars = 10;
-		nameField.addEventListener(MouseEvent.CLICK, nameinputfunction);
+		nameField.addEventListener(MouseEvent.DOUBLE_CLICK, nameinputfunction);
 		addChild(nameField);
 		
 
@@ -165,7 +200,103 @@ class CharOBJ extends Sprite
 			minusBTN.addEventListener(MouseEvent.CLICK, changeValue);
 		}
 		
+		
+		//--------------------------------------------------------------------------
+		
+		skadaBTN = new Sprite();
+		skadaBitmap = new Bitmap(Assets.getBitmapData("assets/skada.png"));
+		skadaBTN.addChild(skadaBitmap);
+		skadaBTN.x  = 20;
+		skadaBTN.y  = 330;
+		skadaBTN.doubleClickEnabled = true;
+		skadaBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknapp);
+		addChild(skadaBTN);
+		
+		stressBTN = new Sprite();
+		stressBitmap = new Bitmap(Assets.getBitmapData("assets/stress.png"));
+		stressBTN.addChild(stressBitmap);
+		stressBTN.x  = 350;
+		stressBTN.y  = 330;
+		stressBTN.doubleClickEnabled = true;
+		stressBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknapp);
+		addChild(stressBTN);
+		
+		forvirringBTN = new Sprite();
+		forvirringBitmap = new Bitmap(Assets.getBitmapData("assets/forvirring.png"));
+		forvirringBTN.addChild(forvirringBitmap);
+		forvirringBTN.x  = 20;
+		forvirringBTN.y  = 395;
+		forvirringBTN.doubleClickEnabled = true;
+		forvirringBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknapp);
+		addChild(forvirringBTN);
+		
+		tvivelBTN = new Sprite();
+		tvivelBitmap = new Bitmap(Assets.getBitmapData("assets/tvivel.png"));
+		tvivelBTN.addChild(tvivelBitmap);
+		tvivelBTN.x  = 350;
+		tvivelBTN.y  = 395;
+		tvivelBTN.doubleClickEnabled = true;
+		tvivelBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknapp);
+		addChild(tvivelBTN);
+		
+
+		
+		
+		
+		
+		//----------------------------------------------------------------------------
+		
+		
+		
+		
 	}
+	
+	
+	public function skadeknapp(e:MouseEvent):Void
+	{
+		
+		if (e.target == skadaBTN)
+		{	styrka--;
+			styrkaField.text = "" + styrka;
+			if (styrka == 0 || styrka<0)
+			{
+				breakChar();
+			} 
+		}
+		
+		if (e.target == stressBTN)
+		{	kyla--;
+			kylaField.text = "" + kyla;
+			if (kyla == 0 || kyla<0)
+			{
+				breakChar();
+			} 
+		}
+		
+		
+		if (e.target == forvirringBTN)
+		{	skarpa--;
+			skarpaField.text = "" + skarpa;
+			if (skarpa == 0 || skarpa<0)
+			{
+				breakChar();
+			} 
+		}
+		
+		
+		if (e.target == tvivelBTN)
+		{	kansla--;
+			kanslaField.text = "" + kansla;
+			if (kansla == 0 || kansla<0)
+			{
+				breakChar();
+			} 
+		}
+		
+	}
+	
+	
+	
 	public function changeValue(e:MouseEvent)
 	{
 		var id:Int = e.currentTarget.id;
@@ -269,9 +400,9 @@ class CharOBJ extends Sprite
 	function nameinputfunction(e:MouseEvent):Void
 	{
 		
-		nameinput = new NameInput();
-		nameinput.x = this.x + 125;
-		nameinput.y = this.y - 60;
+		nameinput = new NameInput(nameString);
+		nameinput.x =  125;
+		nameinput.y = -60;
 		addChild(nameinput);
 		
 		nameinputClose = new Sprite();
@@ -288,8 +419,18 @@ class CharOBJ extends Sprite
 	function getnamestring(e:MouseEvent):Void
 	{
 		
-		nameString = nameinput.nameField.text;
+		nameString = nameinput.nameField2.text;
+		
+		
+		if (nameString == "")
+		{nameString = "Namn"; }
+		
+		if (nameString == "          ")
+		{nameString = "Namn"; }
+		
+		
 		nameField.text = nameString;
+		
 		removeChild(nameinputClose);
 		removeChild(nameinput);
 		
