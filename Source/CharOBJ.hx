@@ -12,6 +12,7 @@ import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFieldType;
 import openfl.text.TextFormat;
+import openfl.events.TouchEvent;
 
 // creates a new Character Object. Uses CharOBJOperator Class to add buttons.
 class CharOBJ extends Sprite
@@ -41,9 +42,13 @@ class CharOBJ extends Sprite
 	var textFormat:TextFormat;
 	//var brutenFormat:TextFormat;
 	var skadaBTN:Sprite;
+	var skadaBTNimg:Bitmap;
 	var stressBTN:Sprite;
+	var stressBTNimg:Bitmap;
 	var forvirringBTN:Sprite;
+	var forvirringBTNimg:Bitmap;
 	var tvivelBTN:Sprite;
+	var tvivelBTNimg:Bitmap;
 	
 	var namnBG:Sprite;
 	var namnBGimg:Bitmap;
@@ -126,6 +131,7 @@ class CharOBJ extends Sprite
 		nameField.y = -30;
 		nameField.selectable = true;
 		nameField.type = TextFieldType.INPUT;
+		nameField.maxChars = 10;
 		addChild(nameField);
 		
 		
@@ -166,9 +172,79 @@ class CharOBJ extends Sprite
 		}
 		
 			// SKADEKNAPPAR
+			skadaBTN = new Sprite();
+			skadaBTNimg = new Bitmap(Assets.getBitmapData("assets/skada.png"));
+			skadaBTN.addChild(skadaBTNimg);
+			skadaBTN.x = 20;
+			skadaBTN.y = 330;
+			skadaBTN.doubleClickEnabled = true;
+			skadaBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
+			addChild(skadaBTN);
+			
+			forvirringBTN = new Sprite();
+			forvirringBTNimg = new Bitmap(Assets.getBitmapData("assets/forvirring.png"));
+			forvirringBTN.addChild(forvirringBTNimg);
+			forvirringBTN.x = 360;
+			forvirringBTN.y = 330;
+			forvirringBTN.doubleClickEnabled = true;
+			forvirringBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
+			addChild(forvirringBTN);
+			
+			stressBTN = new Sprite();
+			stressBTNimg = new Bitmap(Assets.getBitmapData("assets/stress.png"));
+			stressBTN.addChild(stressBTNimg);
+			stressBTN.x = 20;
+			stressBTN.y = 395;
+			stressBTN.doubleClickEnabled = true;
+			stressBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
+			addChild(stressBTN);
+			
+			tvivelBTN = new Sprite();
+			tvivelBTNimg = new Bitmap(Assets.getBitmapData("assets/tvivel.png"));
+			tvivelBTN.addChild(tvivelBTNimg);
+			tvivelBTN.x = 360;
+			tvivelBTN.y = 395;
+			tvivelBTN.doubleClickEnabled = true;
+			tvivelBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
+			addChild(tvivelBTN);
 			
 			
 	}
+	
+	public function skadeknappar(e:MouseEvent)
+	{	
+		if(e.target == skadaBTN)
+		{styrka--; styrkaField.text = "" + styrka; 
+			if (styrka < 1)
+			{
+				breakChar();
+			}
+		}
+		if(e.target == forvirringBTN)
+		{skarpa--; skarpaField.text = "" + skarpa; 
+			if (skarpa < 1)
+			{
+				breakChar();
+			}
+		}
+		if(e.target == stressBTN)
+		{kyla--; kylaField.text = "" + kyla; 
+			if (kyla < 1)
+			{
+				breakChar();
+			}
+		}
+		if(e.target == tvivelBTN)
+		{kansla--; kanslaField.text = "" + kansla; 
+			if (kansla < 1)
+			{
+				breakChar();
+			}
+		}
+				
+		
+	}
+	
 	
 	public function changeValue(e:MouseEvent)
 	{

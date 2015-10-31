@@ -90,12 +90,12 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "361",
+			build: "398",
 			company: "Company Name",
 			file: "Mutant",
 			fps: 60,
 			name: "Mutant",
-			orientation: "",
+			orientation: "portrait",
 			packageName: "com.sample.project",
 			version: "1.0.0",
 			windows: [
@@ -108,7 +108,7 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 1000,
+					height: 1100,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
@@ -132,7 +132,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 660, 1000, "null");
+		openfl.Lib.embed (null, 660, 1100, "null");
 		#end
 		#else
 		create ();
