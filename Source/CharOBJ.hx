@@ -40,6 +40,13 @@ class CharOBJ extends Sprite
 	var minusBTN:CharOBJOperator;
 	var textFormat:TextFormat;
 	//var brutenFormat:TextFormat;
+	var skadaBTN:Sprite;
+	var stressBTN:Sprite;
+	var forvirringBTN:Sprite;
+	var tvivelBTN:Sprite;
+	
+	var namnBG:Sprite;
+	var namnBGimg:Bitmap;
 	
 	var textButton:Sprite = new Sprite();
 	
@@ -52,7 +59,7 @@ class CharOBJ extends Sprite
 		super();
 		textFormat = new TextFormat();
 		textFormat.font = "assets/Nootype.otf";
-		textFormat.align = "center";
+		//textFormat.align = "center";
 		textFormat.size = 60;
 		textFormat.color = 0x12fe16;
 		
@@ -78,30 +85,39 @@ class CharOBJ extends Sprite
 		styrkaField.x = 70;
 		styrkaField.y = 170;			
 		styrkaField.text = "" + styrka;
+		styrkaField.selectable = false;
 		addChild(styrkaField);
 		
 		kylaField.defaultTextFormat = textFormat;
 		kylaField.x = 230;
 		kylaField.y = 170;
-		kylaField.text = "" + kyla;		
+		kylaField.text = "" + kyla;
+		kylaField.selectable = false;
 		addChild(kylaField);
 		
 		skarpaField.defaultTextFormat = textFormat;
 		skarpaField.x = 380;
 		skarpaField.y = 170;
-		skarpaField.text = "" + skarpa;		
+		skarpaField.text = "" + skarpa;	
+		skarpaField.selectable = false;
 		addChild(skarpaField);
 		
 		kanslaField.defaultTextFormat = textFormat;
 		kanslaField.x = 530;
 		kanslaField.y = 170;
-		kanslaField.text = "" + kansla;		
+		kanslaField.text = "" + kansla;
+		kanslaField.selectable = false;
 		addChild(kanslaField);
 		
+		namnBG = new Sprite();
+		namnBGimg = new Bitmap(Assets.getBitmapData("assets/namnruta.png"));
+		namnBG.addChild(namnBGimg);
+		namnBG.x = 110;
+		namnBG.y = -60;
+		addChild(namnBG);
+		
 		nameField.defaultTextFormat = textFormat;
-		nameField.textColor = 0x000000;
-		nameField.background = true;
-		nameField.backgroundColor =0x11fa15;
+		nameField.textColor = 0x12fe16;
 		//nameField.autoSize = TextFieldAutoSize.CENTER;
 		nameField.text = "Namn";
 		nameField.width = 350;
@@ -149,7 +165,11 @@ class CharOBJ extends Sprite
 			minusBTN.addEventListener(MouseEvent.CLICK, changeValue);
 		}
 		
+			// SKADEKNAPPAR
+			
+			
 	}
+	
 	public function changeValue(e:MouseEvent)
 	{
 		var id:Int = e.currentTarget.id;
