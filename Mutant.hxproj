@@ -16,8 +16,13 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
+<<<<<<< HEAD
     <class path="C:\Users\Lemur\HaxePunk\openfl\3,3,9" />
     <class path="C:\Users\Lemur\HaxePunk\lime\2,6,9" />
+=======
+    <class path="C:\Users\jonpi_000\neko\openfl\3,3,9" />
+    <class path="C:\Users\jonpi_000\neko\lime\2,6,9" />
+>>>>>>> origin/master
     <class path="Source" />
     <class path="Export\windows\neko\haxe" />
   </classpaths>
@@ -28,7 +33,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="False" />
-    <option additional="--remap flash:openfl&#xA;#--macro keep(&quot;Main&quot;)&#xA;-debug " />
+    <option additional="--remap flash:openfl&#xA;#--macro keep(&quot;Main&quot;)" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

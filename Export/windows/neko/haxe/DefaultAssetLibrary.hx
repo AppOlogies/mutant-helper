@@ -57,7 +57,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+<<<<<<< HEAD
 		
+=======
+>>>>>>> origin/master
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_nootype_otf);
 		
 		
@@ -79,10 +82,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/forvirring.png", AssetType.IMAGE);
 		path.set ("assets/minus.png", "assets/minus.png");
 		type.set ("assets/minus.png", AssetType.IMAGE);
+<<<<<<< HEAD
 		path.set ("assets/namebg.png", "assets/namebg.png");
 		type.set ("assets/namebg.png", AssetType.IMAGE);
 		path.set ("assets/nameClass_BG.png", "assets/nameClass_BG.png");
 		type.set ("assets/nameClass_BG.png", AssetType.IMAGE);
+=======
+		path.set ("assets/namnruta.png", "assets/namnruta.png");
+		type.set ("assets/namnruta.png", AssetType.IMAGE);
+>>>>>>> origin/master
 		path.set ("assets/Nootype.otf", "assets/Nootype.otf");
 		type.set ("assets/Nootype.otf", AssetType.FONT);
 		path.set ("assets/plus.png", "assets/plus.png");
@@ -116,10 +124,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/minus.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
+<<<<<<< HEAD
 		id = "assets/namebg.png";
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/nameClass_BG.png";
+=======
+		id = "assets/namnruta.png";
+>>>>>>> origin/master
 		path.set (id, id);
 		type.set (id, AssetType.IMAGE);
 		id = "assets/Nootype.otf";
@@ -164,6 +176,13 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		var useManifest = false;
 		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		useManifest = true;
+		
+		className.set ("assets/Nootype.otf", __ASSET__assets_nootype_otf);
+		type.set ("assets/Nootype.otf", AssetType.FONT);
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -559,9 +578,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 	
 	
 	public override function loadAudioBuffer (id:String):Future<AudioBuffer> {
+<<<<<<< HEAD
 		
 		var promise = new Promise<AudioBuffer> ();
 		
+=======
+		
+		var promise = new Promise<AudioBuffer> ();
+		
+>>>>>>> origin/master
 		#if (flash)
 		
 		if (path.exists (id)) {
@@ -608,9 +633,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 	
 	
 	public override function loadBytes (id:String):Future<ByteArray> {
+<<<<<<< HEAD
 		
 		var promise = new Promise<ByteArray> ();
 		
+=======
+		
+		var promise = new Promise<ByteArray> ();
+		
+>>>>>>> origin/master
 		#if flash
 		
 		if (path.exists (id)) {
@@ -623,6 +654,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 				bytes.position = 0;
 				
 				promise.complete (bytes);
+<<<<<<< HEAD
+=======
 				
 			});
 			loader.addEventListener (ProgressEvent.PROGRESS, function (event) {
@@ -674,6 +707,59 @@ class DefaultAssetLibrary extends AssetLibrary {
 			loader.onIOError.add (function (_, e) {
 				
 				promise.error (e);
+>>>>>>> origin/master
+				
+			});
+			loader.addEventListener (ProgressEvent.PROGRESS, function (event) {
+				
+				if (event.bytesTotal == 0) {
+					
+					promise.progress (0);
+					
+				} else {
+					
+					promise.progress (event.bytesLoaded / event.bytesTotal);
+					
+				}
+				
+			});
+			loader.addEventListener (IOErrorEvent.IO_ERROR, promise.error);
+			loader.load (new URLRequest (path.get (id)));
+			
+		} else {
+			
+			promise.complete (getBytes (id));
+<<<<<<< HEAD
+			
+		}
+		
+		#elseif html5
+		
+		if (path.exists (id)) {
+			
+			var loader = new URLLoader ();
+			loader.dataFormat = BINARY;
+			loader.onComplete.add (function (_):Void {
+				
+				promise.complete (loader.data);
+				
+			});
+			loader.onProgress.add (function (_, loaded, total) {
+				
+				if (total == 0) {
+					
+					promise.progress (0);
+					
+				} else {
+					
+					promise.progress (loaded / total);
+					
+				}
+				
+			});
+			loader.onIOError.add (function (_, e) {
+				
+				promise.error (e);
 				
 			});
 			loader.load (new URLRequest (path.get (id)));
@@ -681,6 +767,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		} else {
 			
 			promise.complete (getBytes (id));
+=======
+>>>>>>> origin/master
 			
 		}
 		
@@ -831,9 +919,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 	public override function loadText (id:String):Future<String> {
 		
 		var promise = new Promise<String> ();
+<<<<<<< HEAD
 		
 		#if html5
 		
+=======
+		
+		#if html5
+		
+>>>>>>> origin/master
 		if (path.exists (id)) {
 			
 			var loader = new URLLoader ();
@@ -911,10 +1005,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+<<<<<<< HEAD
 
 
 #elseif html5
+=======
+>>>>>>> origin/master
 
+#elseif html5
 
 
 

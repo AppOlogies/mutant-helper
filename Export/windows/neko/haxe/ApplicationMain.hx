@@ -90,12 +90,20 @@ class ApplicationMain {
 		
 		config = {
 			
+<<<<<<< HEAD
 			build: "548",
+=======
+			build: "398",
+>>>>>>> origin/master
 			company: "Company Name",
 			file: "Mutant",
 			fps: 60,
 			name: "Mutant",
+<<<<<<< HEAD
 			orientation: "",
+=======
+			orientation: "portrait",
+>>>>>>> origin/master
 			packageName: "com.sample.project",
 			version: "1.0.0",
 			windows: [
@@ -108,7 +116,11 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
+<<<<<<< HEAD
 					height: 1000,
+=======
+					height: 1100,
+>>>>>>> origin/master
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
@@ -132,7 +144,11 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
+<<<<<<< HEAD
 		openfl.Lib.embed (null, 660, 1000, "null");
+=======
+		openfl.Lib.embed (null, 660, 1100, "null");
+>>>>>>> origin/master
 		#end
 		#else
 		create ();
