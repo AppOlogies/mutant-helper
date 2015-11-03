@@ -1,193 +1,200 @@
-import openfl.Assets;
+#if !macro
 
 
-#if (!macro && !display && !waxe)
-
-
-@:access(openfl._v2.Assets)
+@:access(lime.app.Application)
+@:access(lime.Assets)
+@:access(openfl.display.Stage)
 
 
 class ApplicationMain {
 	
 	
-	private static var barA:flash.display.Sprite;
-	private static var barB:flash.display.Sprite;
-	private static var container:flash.display.Sprite;
-	private static var forceHeight:Int;
-	private static var forceWidth:Int;
+	public static var config:lime.app.Config;
+	public static var preloader:openfl.display.Preloader;
+	
+	
+	public static function create ():Void {
+		
+		var app = new openfl.display.Application ();
+		app.create (config);
+		
+		var display = new NMEPreloader ();
+		
+		preloader = new openfl.display.Preloader (display);
+		app.setPreloader (preloader);
+		preloader.onComplete.add (init);
+		preloader.create (config);
+		
+		#if (js && html5)
+		var urls = [];
+		var types = [];
+		
+		
+		
+		if (config.assetsPrefix != null) {
+			
+			for (i in 0...urls.length) {
+				
+				if (types[i] != lime.Assets.AssetType.FONT) {
+					
+					urls[i] = config.assetsPrefix + urls[i];
+					
+				}
+				
+			}
+			
+		}
+		
+		preloader.load (urls, types);
+		#end
+		
+		var result = app.exec ();
+		
+		#if (sys && !nodejs && !emscripten)
+		Sys.exit (result);
+		#end
+		
+	}
+	
+	
+	public static function init ():Void {
+		
+		var loaded = 0;
+		var total = 0;
+		var library_onLoad = function (__) {
+			
+			loaded++;
+			
+			if (loaded == total) {
+				
+				start ();
+				
+			}
+			
+		}
+		
+		preloader = null;
+		
+		
+		
+		if (total == 0) {
+			
+			start ();
+			
+		}
+		
+	}
 	
 	
 	public static function main () {
 		
-		flash.Lib.setPackage ("Company Name", "Mutant", "com.sample.project", "1.0.0");
+		config = {
+			
+			build: "548",
+			company: "Company Name",
+			file: "Mutant",
+			fps: 60,
+			name: "Mutant",
+			orientation: "",
+			packageName: "com.sample.project",
+			version: "1.0.0",
+			windows: [
+				
+				{
+					antialiasing: 0,
+					background: 0,
+					borderless: false,
+					depthBuffer: false,
+					display: 0,
+					fullscreen: false,
+					hardware: true,
+					height: 1000,
+					parameters: "{}",
+					resizable: true,
+					stencilBuffer: true,
+					title: "Mutant",
+					vsync: true,
+					width: 660,
+					x: null,
+					y: null
+				},
+			]
+			
+		};
 		
-		
-		#if ios
-		flash.display.Stage.shouldRotateInterface = function (orientation:Int):Bool {
-			return true;
-		}
+		#if hxtelemetry
+		var telemetry = new hxtelemetry.HxTelemetry.Config ();
+		telemetry.allocations = true;
+		telemetry.host = "localhost";
+		telemetry.app_name = config.name;
+		Reflect.setField (config, "telemetry", telemetry);
 		#end
 		
-		
-		
-		
-		
-		flash.Lib.create (function () {
-				
-				flash.Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
-				flash.Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
-				flash.Lib.current.loaderInfo = flash.display.LoaderInfo.create (null);
-				
-				#if mobile
-				
-				forceWidth = 660;
-				forceHeight = 1000;
-				
-				container = new flash.display.Sprite ();
-				barA = new flash.display.Sprite ();
-				barB = new flash.display.Sprite ();
-				
-				flash.Lib.current.stage.addChild (container);
-				container.addChild (flash.Lib.current);
-				container.addChild (barA);
-				container.addChild (barB);
-				
-				applyScale ();
-				flash.Lib.current.stage.addEventListener (flash.events.Event.RESIZE, applyScale);
-				
-				#end
-				
-				#if windows
-				try {
-					
-					var currentPath = haxe.io.Path.directory (Sys.executablePath ());
-					Sys.setCwd (currentPath);
-					
-				} catch (e:Dynamic) {}
-				#elseif linux
-				try {
-					
-					if (!sys.FileSystem.exists (Sys.getCwd () + "/lime.ndll")) {
-						
-						Sys.setCwd (haxe.io.Path.directory (Sys.executablePath ()));
-						
-					}
-					
-				} catch (e:Dynamic) {}
-				#end
-				
-				
-				
-				openfl.Assets.initialize ();
-				
-				var hasMain = false;
-				
-				for (methodName in Type.getClassFields (Main)) {
-					
-					if (methodName == "main") {
-						
-						hasMain = true;
-						break;
-						
-					}
-					
-				}
-					
-				if (hasMain) {
-					
-					Reflect.callMethod (Main, Reflect.field (Main, "main"), []);
-					
-				} else {
-					
-					var instance:DocumentClass = Type.createInstance (DocumentClass, []);
-					
-					if (Std.is (instance, flash.display.DisplayObject)) {
-						
-						flash.Lib.current.addChild (cast instance);
-						
-					}
-					
-				}
-				
-			},
-			660, 1000, 
-			60, 
-			0,
-			(true ? flash.Lib.HARDWARE : 0) |
-			(true ? flash.Lib.ALLOW_SHADERS : 0) |
-			(false ? flash.Lib.REQUIRE_SHADERS : 0) |
-			(false ? flash.Lib.DEPTH_BUFFER : 0) |
-			(false ? flash.Lib.STENCIL_BUFFER : 0) |
-			(true ? flash.Lib.RESIZABLE : 0) |
-			(false ? flash.Lib.BORDERLESS : 0) |
-			(true ? flash.Lib.VSYNC : 0) |
-			(false ? flash.Lib.FULLSCREEN : 0) |
-			(0 == 4 ? flash.Lib.HW_AA_HIRES : 0) |
-			(0 == 2 ? flash.Lib.HW_AA : 0),
-			"Mutant",
-			null
-			#if mobile, ScaledStage #end
-		);
+		#if (js && html5)
+		#if (munit || utest)
+		openfl.Lib.embed (null, 660, 1000, "null");
+		#end
+		#else
+		create ();
+		#end
 		
 	}
 	
-	#if mobile
-	public static function applyScale (?_) {
-		var scaledStage:ScaledStage = cast flash.Lib.current.stage;
+	
+	public static function start ():Void {
 		
-		var xScale:Float = scaledStage.__stageWidth / forceWidth;
-		var yScale:Float = scaledStage.__stageHeight / forceHeight;
+		var hasMain = false;
+		var entryPoint = Type.resolveClass ("Main");
 		
-		if (xScale < yScale) {
+		for (methodName in Type.getClassFields (entryPoint)) {
 			
-			flash.Lib.current.scaleX = xScale;
-			flash.Lib.current.scaleY = xScale;
-			flash.Lib.current.x = (scaledStage.__stageWidth - (forceWidth * xScale)) / 2;
-			flash.Lib.current.y = (scaledStage.__stageHeight - (forceHeight * xScale)) / 2;
-			
-		} else {
-			
-			flash.Lib.current.scaleX = yScale;
-			flash.Lib.current.scaleY = yScale;
-			flash.Lib.current.x = (scaledStage.__stageWidth - (forceWidth * yScale)) / 2;
-			flash.Lib.current.y = (scaledStage.__stageHeight - (forceHeight * yScale)) / 2;
+			if (methodName == "main") {
+				
+				hasMain = true;
+				break;
+				
+			}
 			
 		}
 		
-		if (flash.Lib.current.x > 0) {
+		lime.Assets.initialize ();
+		
+		if (hasMain) {
 			
-			barA.graphics.clear ();
-			barA.graphics.beginFill (0x000000);
-			barA.graphics.drawRect (0, 0, flash.Lib.current.x, scaledStage.__stageHeight);
-			
-			barB.graphics.clear ();
-			barB.graphics.beginFill (0x000000);
-			var x = flash.Lib.current.x + (forceWidth * flash.Lib.current.scaleX);
-			barB.graphics.drawRect (x, 0, scaledStage.__stageWidth - x, scaledStage.__stageHeight);
+			Reflect.callMethod (entryPoint, Reflect.field (entryPoint, "main"), []);
 			
 		} else {
 			
-			barA.graphics.clear ();
-			barA.graphics.beginFill (0x000000);
-			barA.graphics.drawRect (0, 0, scaledStage.__stageWidth, flash.Lib.current.y);
+			var instance:DocumentClass = Type.createInstance (DocumentClass, []);
 			
-			barB.graphics.clear ();
-			barB.graphics.beginFill (0x000000);
-			var y = flash.Lib.current.y + (forceHeight * flash.Lib.current.scaleY);
-			barB.graphics.drawRect (0, y, scaledStage.__stageWidth, scaledStage.__stageHeight - y);
+			/*if (Std.is (instance, openfl.display.DisplayObject)) {
+				
+				openfl.Lib.current.addChild (cast instance);
+				
+			}*/
 			
 		}
+		
+		#if !flash
+		if (openfl.Lib.current.stage.window.fullscreen) {
+			
+			openfl.Lib.current.stage.dispatchEvent (new openfl.events.FullScreenEvent (openfl.events.FullScreenEvent.FULL_SCREEN, false, false, true, true));
+			
+		}
+		
+		openfl.Lib.current.stage.dispatchEvent (new openfl.events.Event (openfl.events.Event.RESIZE, false, false));
+		#end
 		
 	}
-	#end
 	
 	
 	#if neko
-	@:noCompletion public static function __init__ () {
+	@:noCompletion @:dox(hide) public static function __init__ () {
 		
-		untyped $loader.path = $array (haxe.io.Path.directory (Sys.executablePath ()), $loader.path);
-		untyped $loader.path = $array ("./", $loader.path);
-		untyped $loader.path = $array ("@executable_path/", $loader.path);
+		var loader = new neko.vm.Loader (untyped $loader);
+		loader.addPath (haxe.io.Path.directory (Sys.executablePath ()));
+		loader.addPath ("./");
+		loader.addPath ("@executable_path/");
 		
 	}
 	#end
@@ -200,53 +207,7 @@ class ApplicationMain {
 @:keep class DocumentClass extends Main {}
 
 
-#if mobile
-class ScaledStage extends flash.display.Stage {
-	
-	
-	public var __stageHeight (get, null):Int;
-	public var __stageWidth (get, null):Int;
-	
-	
-	public function new (inHandle:Dynamic, inWidth:Int, inHeight:Int) {
-		
-		super (inHandle, 0, 0);
-		
-	}
-	
-	
-	private function get___stageHeight ():Int {
-		
-		return super.get_stageHeight ();
-		
-	}
-	
-	
-	private function get___stageWidth():Int {
-		
-		return super.get_stageWidth ();
-		
-	}
-	
-	
-	private override function get_stageHeight ():Int {
-		
-		return 1000;
-	
-	}
-	
-	private override function get_stageWidth ():Int {
-		
-		return 660;
-	
-	}
-	
-	
-}
-#end
-
-
-#elseif macro
+#else
 
 
 import haxe.macro.Context;
@@ -263,12 +224,20 @@ class DocumentClass {
 		
 		while (searchTypes.superClass != null) {
 			
-			if (searchTypes.pack.length >= 2 && (searchTypes.pack[1] == "display" || searchTypes.pack[2] == "display") && searchTypes.name == "DisplayObject") {
+			if (searchTypes.pack.length == 2 && searchTypes.pack[1] == "display" && searchTypes.name == "DisplayObject") {
 				
 				var fields = Context.getBuildFields ();
-				var method = macro { return flash.Lib.current.stage; }
 				
-				fields.push ({ name: "get_stage", access: [ APrivate, AOverride ], kind: FFun({ args: [], expr: method, params: [], ret: macro :flash.display.Stage }), pos: Context.currentPos () });
+				var method = macro {
+					
+					openfl.Lib.current.addChild (this);
+					super ();
+					dispatchEvent (new openfl.events.Event (openfl.events.Event.ADDED_TO_STAGE, false, false));
+					
+				}
+				
+				fields.push ({ name: "new", access: [ APublic ], kind: FFun({ args: [], expr: method, params: [], ret: macro :Void }), pos: Context.currentPos () });
+				
 				return fields;
 				
 			}
@@ -278,91 +247,6 @@ class DocumentClass {
 		}
 		
 		return null;
-		
-	}
-	
-	
-}
-
-
-#elseif waxe
-
-
-class ApplicationMain {
-	
-	
-	public static var autoShowFrame:Bool = true;
-	public static var frame:wx.Frame;
-	#if openfl
-	static public var nmeStage:wx.NMEStage;
-	#end
-	
-	
-	public static function main () {
-		
-		#if openfl
-		flash.Lib.setPackage ("Company Name", "Mutant", "com.sample.project", "1.0.0");
-		
-		#end
-		
-		wx.App.boot (function () {
-			
-			
-			frame = wx.Frame.create (null, null, "Mutant", null, { width: 660, height: 1000 });
-			
-			
-			#if openfl
-			var stage = wx.NMEStage.create (frame, null, null, { width: 660, height: 1000 });
-			#end
-			
-			var hasMain = false;
-			for (methodName in Type.getClassFields (Main)) {
-				if (methodName == "main") {
-					hasMain = true;
-					break;
-				}
-			}
-			
-			if (hasMain) {
-				Reflect.callMethod (Main, Reflect.field (Main, "main"), []);
-			}else {
-				var instance = Type.createInstance (Main, []);
-			}
-			
-			if (autoShowFrame) {
-				wx.App.setTopWindow (frame);
-				frame.shown = true;
-			}
-			
-		});
-		
-	}
-	
-	#if neko
-	@:noCompletion public static function __init__ () {
-		
-		untyped $loader.path = $array (haxe.io.Path.directory (Sys.executablePath ()), $loader.path);
-		untyped $loader.path = $array ("./", $loader.path);
-		untyped $loader.path = $array ("@executable_path/", $loader.path);
-		
-	}
-	#end
-	
-	
-}
-
-
-#else
-
-
-import Main;
-
-class ApplicationMain {
-	
-	
-	public static function main () {
-		
-		
 		
 	}
 	
