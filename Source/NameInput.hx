@@ -9,6 +9,7 @@ import openfl.text.TextFieldType;
 import openfl.text.TextFormat;
 import openfl.events.Event;
 import openfl.events.MouseEvent;
+import openfl.text.Font;
 
 
 
@@ -20,6 +21,9 @@ class NameInput extends Sprite
 	public var nameField2:TextField = new TextField();
 	private var textFormat:TextFormat;
 	
+	public static var myFont:Font = Assets.getFont("assets/Nootype.otf");
+
+	
 
 	public function new(namestring) 
 	{
@@ -27,8 +31,8 @@ class NameInput extends Sprite
 		
 
 		
-		textFormat = new TextFormat();
-		textFormat.font = "assets/Nootype.otf";
+		textFormat = new TextFormat(myFont.fontName);
+		//textFormat.font = "assets/Nootype.otf";
 		textFormat.size = 60;
 		textFormat.color = 0x000000;
 		

@@ -13,10 +13,13 @@ import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFieldType;
 import openfl.text.TextFormat;
 import openfl.events.TouchEvent;
+import openfl.text.Font;
+
 
 // creates a new Character Object. Uses CharOBJOperator Class to add buttons.
 class CharOBJ extends Sprite
 {
+	
 	var ram:Bitmap;
 	var nameBG:Bitmap;
 	var plus:CharOBJOperator;
@@ -73,6 +76,8 @@ class CharOBJ extends Sprite
 	var forvirringBitmap:Bitmap;
 	var tvivelBTN:Sprite;
 	var tvivelBitmap:Bitmap;
+	
+	public static var myFont:Font = Assets.getFont("assets/Nootype.otf");
 
 	
 	
@@ -80,6 +85,7 @@ class CharOBJ extends Sprite
 	public function new(index, rand:Bool) 
 	{
 		super();
+		
 		
 		if (rand)
 		{
@@ -102,8 +108,8 @@ class CharOBJ extends Sprite
 		}
 		
 		
-		textFormat = new TextFormat();
-		textFormat.font = "assets/Nootype.otf";
+		textFormat = new TextFormat(myFont.fontName);
+		//textFormat.font = "assets/Nootype.otf";
 		//textFormat.align = "center";
 		textFormat.size = 60;
 		textFormat.color = 0x12fe16;
@@ -163,6 +169,7 @@ class CharOBJ extends Sprite
 		
 		
 		nameField.defaultTextFormat = textFormat;
+		//nameField.embedFonts = true;
 		//nameField.textColor = 0x000000;
 		nameField.autoSize = TextFieldAutoSize.LEFT;
 		nameField.text = nameString;
