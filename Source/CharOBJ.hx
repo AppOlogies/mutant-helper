@@ -399,7 +399,7 @@ class CharOBJ extends Sprite
 	function getTextButton(label:String):Sprite
 	{
 		var txt:TextField = new TextField();
-		txt.defaultTextFormat = new TextFormat("assets/Nootype.otf",120,0xE31414);
+		txt.defaultTextFormat = new TextFormat(myFont.fontName,120,0xE31414);
 		txt.text = label;
 		txt.x = 65;
 		txt.y = 150;
