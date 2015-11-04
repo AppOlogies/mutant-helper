@@ -45,7 +45,7 @@ class CharOBJ extends Sprite
 	var minusBTN:CharOBJOperator;
 	var textFormat:TextFormat;
 	//var brutenFormat:TextFormat;
-	var skadaBTN:Sprite;
+	/*var skadaBTN:Sprite;
 	var skadaBTNimg:Bitmap;
 	var stressBTN:Sprite;
 	var stressBTNimg:Bitmap;
@@ -53,6 +53,7 @@ class CharOBJ extends Sprite
 	var forvirringBTNimg:Bitmap;
 	var tvivelBTN:Sprite;
 	var tvivelBTNimg:Bitmap;
+	*/
 	
 	var namnBG:Sprite;
 	var namnBGimg:Bitmap;
@@ -103,10 +104,7 @@ class CharOBJ extends Sprite
 		
 		textFormat = new TextFormat();
 		textFormat.font = "assets/Nootype.otf";
-<<<<<<< HEAD
-=======
 		//textFormat.align = "center";
->>>>>>> origin/master
 		textFormat.size = 60;
 		textFormat.color = 0x12fe16;
 		
@@ -138,11 +136,7 @@ class CharOBJ extends Sprite
 		kylaField.defaultTextFormat = textFormat;
 		kylaField.x = 230;
 		kylaField.y = 170;
-<<<<<<< HEAD
-		kylaField.text = "" + kyla;		
-=======
-		kylaField.text = "" + kyla;
->>>>>>> origin/master
+		kylaField.text = "" + kyla;	
 		kylaField.selectable = false;
 		addChild(kylaField);
 		
@@ -156,7 +150,7 @@ class CharOBJ extends Sprite
 		kanslaField.defaultTextFormat = textFormat;
 		kanslaField.x = 530;
 		kanslaField.y = 170;
-<<<<<<< HEAD
+
 		kanslaField.text = "" + kansla;		
 		kanslaField.selectable = false;
 		addChild(kanslaField);
@@ -181,30 +175,7 @@ class CharOBJ extends Sprite
 		nameField.type = TextFieldType.DYNAMIC;
 		nameField.maxChars = 10;
 		nameField.addEventListener(MouseEvent.DOUBLE_CLICK, nameinputfunction);
-=======
-		kanslaField.text = "" + kansla;
-		kanslaField.selectable = false;
-		addChild(kanslaField);
-		
-		namnBG = new Sprite();
-		namnBGimg = new Bitmap(Assets.getBitmapData("assets/namnruta.png"));
-		namnBG.addChild(namnBGimg);
-		namnBG.x = 110;
-		namnBG.y = -60;
-		addChild(namnBG);
-		
-		nameField.defaultTextFormat = textFormat;
-		nameField.textColor = 0x12fe16;
-		//nameField.autoSize = TextFieldAutoSize.CENTER;
-		nameField.text = "Namn";
-		nameField.width = 350;
-		nameField.height = 70;
-		nameField.x = 330 - nameField.width / 2;
-		nameField.y = -30;
-		nameField.selectable = true;
-		nameField.type = TextFieldType.INPUT;
-		nameField.maxChars = 10;
->>>>>>> origin/master
+
 		addChild(nameField);
 		
 
@@ -245,7 +216,6 @@ class CharOBJ extends Sprite
 			minusBTN.addEventListener(MouseEvent.CLICK, changeValue);
 		}
 		
-<<<<<<< HEAD
 		
 		//--------------------------------------------------------------------------
 		
@@ -338,87 +308,11 @@ class CharOBJ extends Sprite
 				breakChar();
 			} 
 		}
-=======
-			// SKADEKNAPPAR
-			skadaBTN = new Sprite();
-			skadaBTNimg = new Bitmap(Assets.getBitmapData("assets/skada.png"));
-			skadaBTN.addChild(skadaBTNimg);
-			skadaBTN.x = 20;
-			skadaBTN.y = 330;
-			skadaBTN.doubleClickEnabled = true;
-			skadaBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
-			addChild(skadaBTN);
-			
-			forvirringBTN = new Sprite();
-			forvirringBTNimg = new Bitmap(Assets.getBitmapData("assets/forvirring.png"));
-			forvirringBTN.addChild(forvirringBTNimg);
-			forvirringBTN.x = 360;
-			forvirringBTN.y = 330;
-			forvirringBTN.doubleClickEnabled = true;
-			forvirringBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
-			addChild(forvirringBTN);
-			
-			stressBTN = new Sprite();
-			stressBTNimg = new Bitmap(Assets.getBitmapData("assets/stress.png"));
-			stressBTN.addChild(stressBTNimg);
-			stressBTN.x = 20;
-			stressBTN.y = 395;
-			stressBTN.doubleClickEnabled = true;
-			stressBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
-			addChild(stressBTN);
-			
-			tvivelBTN = new Sprite();
-			tvivelBTNimg = new Bitmap(Assets.getBitmapData("assets/tvivel.png"));
-			tvivelBTN.addChild(tvivelBTNimg);
-			tvivelBTN.x = 360;
-			tvivelBTN.y = 395;
-			tvivelBTN.doubleClickEnabled = true;
-			tvivelBTN.addEventListener(MouseEvent.DOUBLE_CLICK, skadeknappar);
-			addChild(tvivelBTN);
-			
-			
-	}
-	
-	public function skadeknappar(e:MouseEvent)
-	{	
-		if(e.target == skadaBTN)
-		{styrka--; styrkaField.text = "" + styrka; 
-			if (styrka < 1)
-			{
-				breakChar();
-			}
-		}
-		if(e.target == forvirringBTN)
-		{skarpa--; skarpaField.text = "" + skarpa; 
-			if (skarpa < 1)
-			{
-				breakChar();
-			}
-		}
-		if(e.target == stressBTN)
-		{kyla--; kylaField.text = "" + kyla; 
-			if (kyla < 1)
-			{
-				breakChar();
-			}
-		}
-		if(e.target == tvivelBTN)
-		{kansla--; kanslaField.text = "" + kansla; 
-			if (kansla < 1)
-			{
-				breakChar();
-			}
-		}
-				
->>>>>>> origin/master
+
 		
 	}
 	
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> origin/master
 	public function changeValue(e:MouseEvent)
 	{
 		var id:Int = e.currentTarget.id;
